@@ -5,14 +5,15 @@ unit puffmainwindow;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  Menus, ComCtrls, PuffInit;
+  Classes, SysUtils, FileUtil, TAGraph, Forms, Controls, Graphics, Dialogs,
+  StdCtrls, Menus, ComCtrls, PuffInit;
 
 type
 
   { TMainForm }
 
   TMainForm = class(TForm)
+    Chart1: TChart;
     MenuItem_Help: TMenuItem;
     MenuItem_About: TMenuItem;
     PuffCmdEdit: TEdit;

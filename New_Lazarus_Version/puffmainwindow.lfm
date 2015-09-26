@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 401
+  Left = 335
   Height = 642
-  Top = 167
+  Top = 173
   Width = 813
   Caption = 'PUFF'
   ClientHeight = 622
@@ -49,9 +49,35 @@ object MainForm: TMainForm
     Width = 813
     Panels = <>
   end
+  object Chart1: TChart
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = PuffCmdLstBox
+    Left = 464
+    Height = 200
+    Top = 316
+    Width = 349
+    AxisList = <    
+      item
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+      end    
+      item
+        Alignment = calBottom
+        Minors = <>
+      end>
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    Anchors = [akRight, akBottom]
+  end
   object PuffMenu: TMainMenu
-    left = 193
-    top = 119
+    left = 72
+    top = 64
     object MenuItem_Help: TMenuItem
       Caption = 'Help'
       object MenuItem_About: TMenuItem
