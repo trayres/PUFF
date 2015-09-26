@@ -5,3 +5,7 @@ New_Lazarus_Version/lib/i386-win32/PUFF.or
 *.bak
 *.ppu
 New_Lazarus_Version/PUFF.exe
+*.bak
+New_Lazarus_Version/backup/PUFF.lpi.bak
+*.or
+*.or
