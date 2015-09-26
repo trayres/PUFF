@@ -1,0 +1,7 @@
+New_Lazarus_Version/lib/i386-win32/puffinit.o
+*.o
+New_Lazarus_Version/lib/i386-win32/PUFF.or
+*.o
+*.bak
+*.ppu
+New_Lazarus_Version/PUFF.exe
