@@ -1,0 +1,1 @@
+This folder contains small pieces of FPC/Lazarus code to use and clarify the idioms in the language so they could be succesfully integrated into the updated PUFF. 

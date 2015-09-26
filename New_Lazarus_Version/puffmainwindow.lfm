@@ -1,0 +1,58 @@
+object MainForm: TMainForm
+  Left = 2129
+  Height = 714
+  Top = 90
+  Width = 1348
+  Caption = 'PUFF'
+  ClientHeight = 694
+  ClientWidth = 1348
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '1.4.0.4'
+  object MessageWindowCmdHistory: TListBox
+    AnchorSideLeft.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = CmdEntryBox
+    Left = 0
+    Height = 60
+    Top = 591
+    Width = 1348
+    Anchors = [akLeft, akRight, akBottom]
+    Constraints.MaxHeight = 60
+    ItemHeight = 0
+    TabOrder = 1
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 671
+    Width = 1348
+    Panels = <>
+  end
+  object CmdEntryBox: TEdit
+    AnchorSideLeft.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = StatusBar1
+    Left = 0
+    Height = 20
+    Top = 651
+    Width = 1348
+    Anchors = [akLeft, akRight, akBottom]
+    Constraints.MaxHeight = 20
+    TabOrder = 0
+    Text = 'CmdEntryBox'
+  end
+  object MainMenu1: TMainMenu
+    left = 176
+    top = 120
+    object mnu_Help: TMenuItem
+      Caption = 'Help'
+      object mnui_About: TMenuItem
+        Caption = 'About'
+        OnClick = mnui_AboutClick
+      end
+    end
+  end
+end
