@@ -40,7 +40,9 @@ implementation
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
   version_string :=  String({$I %DATE%}); // {$I %TIME%} Right now this is a crude date - we'll come up with something better later.
+  {$IFDEF DEBUG}
   WriteLn(version_string);
+  {$ENDIF DEBUG}
   Caption := 'PUFF ' + String(version_string);
   PuffCmdLstBox.Clear;
   PuffCmdLstBox.Items.Add('>>');

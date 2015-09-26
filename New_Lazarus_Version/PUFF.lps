@@ -3,7 +3,11 @@
   <ProjectSession>
     <PathDelim Value="\"/>
     <Version Value="9"/>
-    <BuildModes Active="Default"/>
+    <BuildModes Active="Release">
+      <SessionMatrixOptions Count="1">
+        <Item1 ID="581792366085" Modes="Debug" Value="-dDEBUG"/>
+      </SessionMatrixOptions>
+    </BuildModes>
     <Units Count="3">
       <Unit0>
         <Filename Value="PUFF.lpr"/>
@@ -19,8 +23,8 @@
         <ComponentName Value="MainForm"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="14"/>
-        <CursorPos Y="43"/>
+        <TopLine Value="13"/>
+        <CursorPos X="26" Y="43"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -30,12 +34,12 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="PuffInit"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="92" Y="25"/>
+        <CursorPos X="16" Y="25"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit2>
     </Units>
-    <JumpHistory Count="10" HistoryIndex="9">
+    <JumpHistory Count="11" HistoryIndex="10">
       <Position1>
         <Filename Value="puffmainwindow.pas"/>
         <Caret Line="26" Column="42"/>
@@ -76,6 +80,10 @@
         <Filename Value="puffmainwindow.pas"/>
         <Caret Line="9" Column="28" TopLine="14"/>
       </Position10>
+      <Position11>
+        <Filename Value="puffinit.pas"/>
+        <Caret Line="20" Column="3"/>
+      </Position11>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>

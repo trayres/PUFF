@@ -1,3 +1,5 @@
 http://forum.lazarus.freepascal.org/index.php?topic=20421.0 - Used for compile date/time
 
 http://wiki.freepascal.org/Command_line_parameters_and_environment_variables -> For how to get/use environment variables
+
+http://wiki.freepascal.org/IDE_Window:_Compiler_Options#Adding_a_release_and_debug_build_modes -> Need a debug/release mode
