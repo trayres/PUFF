@@ -7,18 +7,15 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, PuffMainWindow,
-  { you can add units after this }
-  Crt, puffinit;
+  Forms, puffmainwindow
+  { you can add units after this };
 
 {$R *.res}
-
 
 begin
   RequireDerivedFormResource := True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
-  Application.Run; //This drops us into the application loop, so we can't setup here.
-
+  Application.Run;
 end.
 

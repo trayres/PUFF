@@ -1,0 +1,1 @@
+http://forum.lazarus.freepascal.org/index.php?topic=20421.0 - Used for compile date/time

@@ -1,0 +1,3 @@
+  The "puff_file:=Commandline" has a side effect of replacing puff_file with
+  "setup" to load "setup.puf", which means if the user deletes this file it simply exits.
+  Let's replace that whole ball of wax.

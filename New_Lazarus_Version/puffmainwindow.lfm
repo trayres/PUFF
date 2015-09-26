@@ -1,58 +1,62 @@
 object MainForm: TMainForm
-  Left = 2129
-  Height = 714
-  Top = 90
-  Width = 1348
+  Left = 401
+  Height = 642
+  Top = 167
+  Width = 813
   Caption = 'PUFF'
-  ClientHeight = 694
-  ClientWidth = 1348
-  Menu = MainMenu1
+  ClientHeight = 622
+  ClientWidth = 813
+  Menu = PuffMenu
   OnCreate = FormCreate
   LCLVersion = '1.4.2.0'
-  object MessageWindowCmdHistory: TListBox
+  object PuffCmdLstBox: TListBox
     AnchorSideLeft.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = CmdEntryBox
+    AnchorSideBottom.Control = PuffCmdEdit
     Left = 0
     Height = 60
-    Top = 591
-    Width = 1348
+    Top = 516
+    Width = 813
     Anchors = [akLeft, akRight, akBottom]
     Constraints.MaxHeight = 60
     ItemHeight = 0
-    OnClick = MessageWindowCmdHistoryClick
-    TabOrder = 1
+    TabOrder = 0
   end
-  object StatusBar1: TStatusBar
-    Left = 0
-    Height = 23
-    Top = 671
-    Width = 1348
-    Panels = <>
-  end
-  object CmdEntryBox: TEdit
+  object PuffCmdEdit: TEdit
     AnchorSideLeft.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = StatusBar1
+    AnchorSideBottom.Control = PuffStatusBar
     Left = 0
-    Height = 20
-    Top = 651
-    Width = 1348
+    Height = 23
+    Top = 576
+    Width = 813
     Anchors = [akLeft, akRight, akBottom]
-    Constraints.MaxHeight = 20
-    TabOrder = 0
-    Text = 'CmdEntryBox'
+    Constraints.MaxHeight = 23
+    TabOrder = 1
+    Text = '>>'
   end
-  object MainMenu1: TMainMenu
-    left = 176
-    top = 120
-    object mnu_Help: TMenuItem
+  object PuffStatusBar: TStatusBar
+    AnchorSideLeft.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 0
+    Height = 23
+    Top = 599
+    Width = 813
+    Panels = <>
+  end
+  object PuffMenu: TMainMenu
+    left = 193
+    top = 119
+    object MenuItem_Help: TMenuItem
       Caption = 'Help'
-      object mnui_About: TMenuItem
+      object MenuItem_About: TMenuItem
         Caption = 'About'
-        OnClick = mnui_AboutClick
+        OnClick = MenuItem_AboutClick
       end
     end
   end
