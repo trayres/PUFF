@@ -20,6 +20,7 @@ type
     MessageWindowCmdHistory: TListBox;
     StatusBar1: TStatusBar;
     procedure FormCreate(Sender: TObject);
+    procedure MessageWindowCmdHistoryClick(Sender: TObject);
     procedure mnui_AboutClick(Sender: TObject);
   private
     { private declarations }
@@ -46,6 +47,11 @@ begin
   MessageWindowCmdHistory.Items.Add('>>');
   CmdEntryBox.Clear;
   CmdEntryBox.Text:='>>';
+end;
+
+procedure TMainForm.MessageWindowCmdHistoryClick(Sender: TObject);
+begin
+
 end;
 
 procedure TMainForm.mnui_AboutClick(Sender: TObject);

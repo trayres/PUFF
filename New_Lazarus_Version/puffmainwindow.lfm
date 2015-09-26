@@ -8,7 +8,7 @@ object MainForm: TMainForm
   ClientWidth = 1348
   Menu = MainMenu1
   OnCreate = FormCreate
-  LCLVersion = '1.4.0.4'
+  LCLVersion = '1.4.2.0'
   object MessageWindowCmdHistory: TListBox
     AnchorSideLeft.Control = Owner
     AnchorSideRight.Control = Owner
@@ -21,6 +21,7 @@ object MainForm: TMainForm
     Anchors = [akLeft, akRight, akBottom]
     Constraints.MaxHeight = 60
     ItemHeight = 0
+    OnClick = MessageWindowCmdHistoryClick
     TabOrder = 1
   end
   object StatusBar1: TStatusBar
