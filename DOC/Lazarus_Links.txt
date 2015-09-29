@@ -5,3 +5,4 @@ http://wiki.freepascal.org/Command_line_parameters_and_environment_variables -> 
 http://wiki.freepascal.org/IDE_Window:_Compiler_Options#Adding_a_release_and_debug_build_modes -> Need a debug/release mode
 http://lists.lazarus.freepascal.org/pipermail/lazarus/2012-January/069646.html -> answered the debug/release mode question better - I was adding an IDE Macro, I wanted a FPC macro.
 http://wiki.lazarus.freepascal.org/TAChart_Tutorial:_Getting_started -> Using a chart for the plot
+http://forum.lazarus.freepascal.org/index.php?topic=6587.0 -> Drawing on TPaintBox
