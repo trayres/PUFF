@@ -5,15 +5,17 @@ unit puffmainwindow;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, TAGraph, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, Menus, ComCtrls, PuffInit;
+  Classes, SysUtils, FileUtil, TAGraph, TASeries, Forms, Controls, Graphics,
+  Dialogs, StdCtrls, Menus, ComCtrls, PuffStruct;
 
 type
 
   { TMainForm }
 
   TMainForm = class(TForm)
+    PuffStruct : TPUFF;
     Chart1: TChart;
+    Chart1LineSeries1: TLineSeries;
     MenuItem_Help: TMenuItem;
     MenuItem_About: TMenuItem;
     PuffCmdEdit: TEdit;
@@ -39,11 +41,18 @@ implementation
 { TMainForm }
 
 procedure TMainForm.FormCreate(Sender: TObject);
+{Fill PuffStruct here with vars that puff needs, and instantiate a copy of it belonging to the FORM, rather than just spray variables all over}
+var
+  I : Integer;
 begin
   version_string :=  String({$I %DATE%}); // {$I %TIME%} Right now this is a crude date - we'll come up with something better later.
-  {$IFDEF DEBUG}
-  WriteLn(version_string);
-  {$ENDIF DEBUG}
+  for I := 0 to ParamCount do begin
+    {$IFDEF DEBUG}
+    WriteLn(version_string);
+    WriteLn('Param ', I, ': ', ParamStr(I));
+    WriteLn('ParamCount:  ', ParamCount);
+    {$ENDIF DEBUG}
+  end;
   Caption := 'PUFF ' + String(version_string);
   PuffCmdLstBox.Clear;
   PuffCmdLstBox.Items.Add('>>');

@@ -1,8 +1,13 @@
-unit PuffInit;
+unit PuffStruct;
 
 {$mode objfpc}{$H+}
 
 interface
+
+type
+TPUFF = class
+    dev_file, net_file : TStringList;
+end
 
 uses
   Classes, SysUtils;
@@ -19,7 +24,6 @@ finalization begin
 dev_file.Free;
 net_file.Free;
 end;
-
 
 
 end.

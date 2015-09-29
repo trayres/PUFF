@@ -74,6 +74,8 @@ object MainForm: TMainForm
       'TAChart'
     )
     Anchors = [akRight, akBottom]
+    object Chart1LineSeries1: TLineSeries
+    end
   end
   object PuffMenu: TMainMenu
     left = 72
