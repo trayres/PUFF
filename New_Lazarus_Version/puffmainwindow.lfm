@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 67
+  Left = 74
   Height = 758
-  Top = 82
+  Top = 154
   Width = 1543
   Caption = 'PUFF'
   ClientHeight = 738
@@ -418,7 +418,6 @@ object MainForm: TMainForm
   object PlotPanel: TPanel
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
-    AnchorSideRight.Control = Layout_Panel
     Left = 0
     Height = 136
     Top = 0
@@ -489,19 +488,6 @@ object MainForm: TMainForm
     )
     Anchors = [akTop, akLeft, akRight, akBottom]
   end
-  object Layout_Panel: TPanel
-    AnchorSideLeft.Control = PartsPanel
-    AnchorSideLeft.Side = asrBottom
-    AnchorSideTop.Control = Owner
-    AnchorSideRight.Control = Smith_Layout_Splitter
-    AnchorSideBottom.Control = Frequency_LayoutSmith_Splitter
-    Left = 280
-    Height = 413
-    Top = 0
-    Width = 952
-    Anchors = [akTop, akLeft, akRight, akBottom]
-    TabOrder = 8
-  end
   object Smith_Layout_Splitter: TSplitter
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = SmithChart
@@ -524,6 +510,38 @@ object MainForm: TMainForm
     Width = 1263
     Align = alNone
     Anchors = [akLeft, akRight]
+  end
+  object ScrollBox1: TScrollBox
+    AnchorSideLeft.Control = PartsPanel
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Smith_Layout_Splitter
+    AnchorSideBottom.Control = Frequency_LayoutSmith_Splitter
+    Left = 280
+    Height = 413
+    Top = 0
+    Width = 952
+    HorzScrollBar.Page = 105
+    VertScrollBar.Page = 105
+    VertScrollBar.Tracking = True
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ClientHeight = 409
+    ClientWidth = 948
+    TabOrder = 10
+    object PaintBox1: TPaintBox
+      AnchorSideLeft.Control = ScrollBox1
+      AnchorSideTop.Control = ScrollBox1
+      AnchorSideRight.Control = ScrollBox1
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = ScrollBox1
+      AnchorSideBottom.Side = asrBottom
+      Left = 0
+      Height = 409
+      Top = 0
+      Width = 948
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      OnMouseMove = PaintBox1MouseMove
+    end
   end
   object PuffMenu: TMainMenu
     left = 72

@@ -29,7 +29,9 @@ type
     Edit8: TEdit;
     Edit9: TEdit;
     Label1: TLabel;
+    PaintBox1: TPaintBox;
     Points_Editbox: TEdit;
+    ScrollBox1: TScrollBox;
     Smith_Radius_Editbox: TEdit;
     FrequencyChart: TChart;
     BoardPanel: TPanel;
@@ -45,7 +47,6 @@ type
     Partlabel_h: TLabel;
     Partlabel_i: TLabel;
     SmithChart: TChart;
-    Layout_Panel: TPanel;
     Smith_Layout_Splitter: TSplitter;
     Frequency_LayoutSmith_Splitter: TSplitter;
     zd_edit: TEdit;
@@ -69,6 +70,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
     procedure MenuItem_AboutClick(Sender: TObject);
+    procedure PaintBox1MouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
   private
     { private declarations }
   public
@@ -125,6 +128,12 @@ begin
   'http://www.its.caltech.edu/~mmic/puff.html -> for the original version' + sLineBreak +
   'http://wwwhome.cs.utwente.nl/~ptdeboer/ham/puff.html -> for the Linux version' + sLineBreak +
   'https://github.com/trayres/PUFF -> For updated Multi-Platform Lazarus version');
+end;
+
+procedure TMainForm.PaintBox1MouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
+begin
+     PuffStatusBar.Panels[0].Text:='('+IntToStr(X)+','+IntToStr(Y)+')';
 end;
 
 end.
