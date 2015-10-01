@@ -6,16 +6,55 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, TAGraph, TASeries, Forms, Controls, Graphics,
-  Dialogs, StdCtrls, Menus, ComCtrls, PuffStruct;
+  Dialogs, StdCtrls, Menus, ComCtrls, ExtCtrls, PuffStruct;
 
 type
 
   { TMainForm }
 
   TMainForm = class(TForm)
-    Chart1: TChart;
+    fd_combobox: TComboBox;
+    Edit1: TEdit;
+    Edit10: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    Edit6: TEdit;
+    Edit7: TEdit;
+    Edit8: TEdit;
+    Edit9: TEdit;
+    Points_Editbox: TEdit;
+    Smith_Radius_Editbox: TEdit;
+    FrequencyChart: TChart;
+    BoardPanel: TPanel;
+    Partlabel_a: TLabel;
+    Points_Label: TLabel;
+    SmithRadius_Label: TLabel;
+    Partlabel_b: TLabel;
+    Partlabel_c: TLabel;
+    Partlabel_d: TLabel;
+    Partlabel_e: TLabel;
+    Partlabel_f: TLabel;
+    Partlabel_g: TLabel;
+    Partlabel_h: TLabel;
+    Partlabel_i: TLabel;
+    SmithChart: TChart;
+    Layout_Panel: TPanel;
+    Smith_Layout_Splitter: TSplitter;
+    Frequency_LayoutSmith_Splitter: TSplitter;
+    zd_edit: TEdit;
+    tab_combobox: TComboBox;
+    fd: TLabel;
+    er_label: TLabel;
+    h_label: TLabel;
+    c_label: TLabel;
+    s_label: TLabel;
+    zd: TLabel;
+    PlotPanel: TPanel;
+    PartsPanel: TPanel;
     PuffInst : TPuffStruct;
-    Chart1LineSeries1: TLineSeries;
+    FrequencyChartLineSeries1: TLineSeries;
     MenuItem_Help: TMenuItem;
     MenuItem_About: TMenuItem;
     PuffCmdEdit: TEdit;
@@ -23,6 +62,7 @@ type
     PuffMenu: TMainMenu;
     PuffStatusBar: TStatusBar;
     procedure FormCreate(Sender: TObject);
+    procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
     procedure MenuItem_AboutClick(Sender: TObject);
   private
     { private declarations }
@@ -59,6 +99,13 @@ begin
   PuffCmdLstBox.Items.Add('>>');
   PuffCmdEdit.Clear;
   PuffCmdEdit.Text:='>>';
+end;
+
+procedure TMainForm.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
+begin
+   PuffStatusBar.Panels[0].Text:='('+IntToStr(X)+','+IntToStr(Y)+')';
+   //if (PuffStatusBar.Panels[0].Text Size > Width
 end;
 
 procedure TMainForm.MenuItem_AboutClick(Sender: TObject);

@@ -54,7 +54,6 @@ type
     public
     dev_file, net_file : TStringList;
     DemoMode, Marker_OK : Boolean;
-
   end;
 
 implementation
