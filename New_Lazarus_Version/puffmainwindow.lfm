@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 159
+  Left = 67
   Height = 758
-  Top = 158
+  Top = 82
   Width = 1543
   Caption = 'PUFF'
   ClientHeight = 738
@@ -94,11 +94,11 @@ object MainForm: TMainForm
     AnchorSideRight.Control = FrequencyChart
     AnchorSideBottom.Control = PuffCmdLstBox
     Left = 0
-    Height = 196
-    Top = 436
+    Height = 224
+    Top = 408
     Width = 280
     Anchors = [akLeft, akBottom]
-    ClientHeight = 196
+    ClientHeight = 224
     ClientWidth = 280
     TabOrder = 4
     object zd: TLabel
@@ -106,7 +106,7 @@ object MainForm: TMainForm
       AnchorSideBottom.Control = fd
       Left = 11
       Height = 15
-      Top = 12
+      Top = 40
       Width = 12
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 10
@@ -119,7 +119,7 @@ object MainForm: TMainForm
       AnchorSideBottom.Control = er_label
       Left = 11
       Height = 15
-      Top = 37
+      Top = 65
       Width = 11
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 10
@@ -132,7 +132,7 @@ object MainForm: TMainForm
       AnchorSideBottom.Control = h_label
       Left = 11
       Height = 15
-      Top = 62
+      Top = 90
       Width = 10
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 10
@@ -145,7 +145,7 @@ object MainForm: TMainForm
       AnchorSideBottom.Control = s_label
       Left = 11
       Height = 15
-      Top = 87
+      Top = 115
       Width = 7
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 10
@@ -158,7 +158,7 @@ object MainForm: TMainForm
       AnchorSideBottom.Control = c_label
       Left = 11
       Height = 15
-      Top = 112
+      Top = 140
       Width = 5
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 10
@@ -171,7 +171,7 @@ object MainForm: TMainForm
       AnchorSideBottom.Control = tab_combobox
       Left = 11
       Height = 15
-      Top = 137
+      Top = 165
       Width = 6
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 10
@@ -185,7 +185,7 @@ object MainForm: TMainForm
       AnchorSideBottom.Side = asrBottom
       Left = 11
       Height = 23
-      Top = 162
+      Top = 190
       Width = 100
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 10
@@ -195,17 +195,17 @@ object MainForm: TMainForm
       Text = 'tab_combobox'
     end
     object zd_edit: TEdit
-      Left = 64
+      Left = 31
       Height = 23
-      Top = 8
+      Top = 40
       Width = 80
       TabOrder = 1
       Text = '50.000'
     end
     object Edit10: TEdit
-      Left = 64
+      Left = 31
       Height = 23
-      Top = 37
+      Top = 64
       Width = 80
       TabOrder = 2
       Text = '500.000'
@@ -216,13 +216,54 @@ object MainForm: TMainForm
       Top = 37
       Width = 80
       ItemHeight = 15
+      ItemIndex = 0
       Items.Strings = (
         'MHz'
         'KHz'
         'mHz'
       )
       TabOrder = 3
-      Text = 'Freq'
+      Text = 'MHz'
+    end
+    object Label1: TLabel
+      Left = 104
+      Height = 15
+      Top = 8
+      Width = 93
+      Caption = 'Board Parameters'
+      ParentColor = False
+    end
+    object Edit11: TEdit
+      Left = 31
+      Height = 23
+      Top = 90
+      Width = 80
+      TabOrder = 4
+      Text = '4.300'
+    end
+    object Edit12: TEdit
+      Left = 31
+      Height = 23
+      Top = 115
+      Width = 80
+      TabOrder = 5
+      Text = '1.500 mm'
+    end
+    object Edit13: TEdit
+      Left = 32
+      Height = 23
+      Top = 140
+      Width = 80
+      TabOrder = 6
+      Text = '200.000 mm'
+    end
+    object Edit14: TEdit
+      Left = 31
+      Height = 23
+      Top = 165
+      Width = 80
+      TabOrder = 7
+      Text = '1.600 mm'
     end
   end
   object PartsPanel: TPanel
@@ -231,11 +272,11 @@ object MainForm: TMainForm
     AnchorSideTop.Side = asrBottom
     AnchorSideBottom.Control = BoardPanel
     Left = 0
-    Height = 300
+    Height = 272
     Top = 136
     Width = 280
     Anchors = [akTop, akLeft, akBottom]
-    ClientHeight = 300
+    ClientHeight = 272
     ClientWidth = 280
     TabOrder = 5
     object Partlabel_a: TLabel
@@ -316,7 +357,6 @@ object MainForm: TMainForm
       Top = 8
       Width = 208
       TabOrder = 0
-      Text = 'Edit1'
     end
     object Edit2: TEdit
       Left = 32
@@ -324,7 +364,6 @@ object MainForm: TMainForm
       Top = 32
       Width = 208
       TabOrder = 1
-      Text = 'Edit2'
     end
     object Edit3: TEdit
       Left = 32
@@ -332,7 +371,6 @@ object MainForm: TMainForm
       Top = 56
       Width = 208
       TabOrder = 2
-      Text = 'Edit3'
     end
     object Edit4: TEdit
       Left = 32
@@ -340,7 +378,6 @@ object MainForm: TMainForm
       Top = 80
       Width = 208
       TabOrder = 3
-      Text = 'Edit4'
     end
     object Edit5: TEdit
       Left = 32
@@ -348,7 +385,6 @@ object MainForm: TMainForm
       Top = 104
       Width = 208
       TabOrder = 4
-      Text = 'Edit5'
     end
     object Edit6: TEdit
       Left = 32
@@ -356,7 +392,6 @@ object MainForm: TMainForm
       Top = 128
       Width = 208
       TabOrder = 5
-      Text = 'Edit6'
     end
     object Edit7: TEdit
       Left = 32
@@ -364,7 +399,6 @@ object MainForm: TMainForm
       Top = 152
       Width = 208
       TabOrder = 6
-      Text = 'Edit7'
     end
     object Edit8: TEdit
       Left = 32
@@ -372,7 +406,6 @@ object MainForm: TMainForm
       Top = 176
       Width = 208
       TabOrder = 7
-      Text = 'Edit8'
     end
     object Edit9: TEdit
       Left = 32
@@ -380,7 +413,6 @@ object MainForm: TMainForm
       Top = 200
       Width = 208
       TabOrder = 8
-      Text = 'Edit9'
     end
   end
   object PlotPanel: TPanel
@@ -486,7 +518,6 @@ object MainForm: TMainForm
     AnchorSideLeft.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Cursor = crVSplit
     Left = 280
     Height = 8
     Top = 413

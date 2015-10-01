@@ -13,6 +13,10 @@ type
   { TMainForm }
 
   TMainForm = class(TForm)
+    Edit11: TEdit;
+    Edit12: TEdit;
+    Edit13: TEdit;
+    Edit14: TEdit;
     fd_combobox: TComboBox;
     Edit1: TEdit;
     Edit10: TEdit;
@@ -24,6 +28,7 @@ type
     Edit7: TEdit;
     Edit8: TEdit;
     Edit9: TEdit;
+    Label1: TLabel;
     Points_Editbox: TEdit;
     Smith_Radius_Editbox: TEdit;
     FrequencyChart: TChart;
