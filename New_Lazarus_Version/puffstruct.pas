@@ -56,6 +56,10 @@ type
     DemoMode, Marker_OK : Boolean;
   end;
 
+  TPuffLayoutComponent = class
+
+  end;
+
 implementation
 
 

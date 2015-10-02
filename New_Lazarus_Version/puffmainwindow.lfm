@@ -1,7 +1,7 @@
 object MainForm: TMainForm
   Left = 74
   Height = 758
-  Top = 154
+  Top = 199
   Width = 1543
   Caption = 'PUFF'
   ClientHeight = 738
@@ -58,17 +58,17 @@ object MainForm: TMainForm
     SimplePanel = False
   end
   object FrequencyChart: TChart
-    AnchorSideLeft.Control = BoardPanel
+    AnchorSideLeft.Control = LeftSide_Splitter
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Frequency_LayoutSmith_Splitter
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = PuffCmdLstBox
-    Left = 280
-    Height = 211
-    Top = 421
-    Width = 1263
+    Left = 312
+    Height = 202
+    Top = 430
+    Width = 1231
     AxisList = <    
       item
         Minors = <>
@@ -89,376 +89,6 @@ object MainForm: TMainForm
     object FrequencyChartLineSeries1: TLineSeries
     end
   end
-  object BoardPanel: TPanel
-    AnchorSideLeft.Control = Owner
-    AnchorSideRight.Control = FrequencyChart
-    AnchorSideBottom.Control = PuffCmdLstBox
-    Left = 0
-    Height = 224
-    Top = 408
-    Width = 280
-    Anchors = [akLeft, akBottom]
-    ClientHeight = 224
-    ClientWidth = 280
-    TabOrder = 4
-    object zd: TLabel
-      AnchorSideLeft.Control = BoardPanel
-      AnchorSideBottom.Control = fd
-      Left = 11
-      Height = 15
-      Top = 40
-      Width = 12
-      Anchors = [akLeft, akBottom]
-      BorderSpacing.Left = 10
-      BorderSpacing.Bottom = 10
-      Caption = 'zd'
-      ParentColor = False
-    end
-    object fd: TLabel
-      AnchorSideLeft.Control = BoardPanel
-      AnchorSideBottom.Control = er_label
-      Left = 11
-      Height = 15
-      Top = 65
-      Width = 11
-      Anchors = [akLeft, akBottom]
-      BorderSpacing.Left = 10
-      BorderSpacing.Bottom = 10
-      Caption = 'fd'
-      ParentColor = False
-    end
-    object er_label: TLabel
-      AnchorSideLeft.Control = BoardPanel
-      AnchorSideBottom.Control = h_label
-      Left = 11
-      Height = 15
-      Top = 90
-      Width = 10
-      Anchors = [akLeft, akBottom]
-      BorderSpacing.Left = 10
-      BorderSpacing.Bottom = 10
-      Caption = 'er'
-      ParentColor = False
-    end
-    object h_label: TLabel
-      AnchorSideLeft.Control = BoardPanel
-      AnchorSideBottom.Control = s_label
-      Left = 11
-      Height = 15
-      Top = 115
-      Width = 7
-      Anchors = [akLeft, akBottom]
-      BorderSpacing.Left = 10
-      BorderSpacing.Bottom = 10
-      Caption = 'h'
-      ParentColor = False
-    end
-    object s_label: TLabel
-      AnchorSideLeft.Control = BoardPanel
-      AnchorSideBottom.Control = c_label
-      Left = 11
-      Height = 15
-      Top = 140
-      Width = 5
-      Anchors = [akLeft, akBottom]
-      BorderSpacing.Left = 10
-      BorderSpacing.Bottom = 10
-      Caption = 's'
-      ParentColor = False
-    end
-    object c_label: TLabel
-      AnchorSideLeft.Control = BoardPanel
-      AnchorSideBottom.Control = tab_combobox
-      Left = 11
-      Height = 15
-      Top = 165
-      Width = 6
-      Anchors = [akLeft, akBottom]
-      BorderSpacing.Left = 10
-      BorderSpacing.Bottom = 10
-      Caption = 'c'
-      ParentColor = False
-    end
-    object tab_combobox: TComboBox
-      AnchorSideLeft.Control = BoardPanel
-      AnchorSideBottom.Control = BoardPanel
-      AnchorSideBottom.Side = asrBottom
-      Left = 11
-      Height = 23
-      Top = 190
-      Width = 100
-      Anchors = [akLeft, akBottom]
-      BorderSpacing.Left = 10
-      BorderSpacing.Bottom = 10
-      ItemHeight = 15
-      TabOrder = 0
-      Text = 'tab_combobox'
-    end
-    object zd_edit: TEdit
-      Left = 31
-      Height = 23
-      Top = 40
-      Width = 80
-      TabOrder = 1
-      Text = '50.000'
-    end
-    object Edit10: TEdit
-      Left = 31
-      Height = 23
-      Top = 64
-      Width = 80
-      TabOrder = 2
-      Text = '500.000'
-    end
-    object fd_combobox: TComboBox
-      Left = 152
-      Height = 23
-      Top = 37
-      Width = 80
-      ItemHeight = 15
-      ItemIndex = 0
-      Items.Strings = (
-        'MHz'
-        'KHz'
-        'mHz'
-      )
-      TabOrder = 3
-      Text = 'MHz'
-    end
-    object Label1: TLabel
-      Left = 104
-      Height = 15
-      Top = 8
-      Width = 93
-      Caption = 'Board Parameters'
-      ParentColor = False
-    end
-    object Edit11: TEdit
-      Left = 31
-      Height = 23
-      Top = 90
-      Width = 80
-      TabOrder = 4
-      Text = '4.300'
-    end
-    object Edit12: TEdit
-      Left = 31
-      Height = 23
-      Top = 115
-      Width = 80
-      TabOrder = 5
-      Text = '1.500 mm'
-    end
-    object Edit13: TEdit
-      Left = 32
-      Height = 23
-      Top = 140
-      Width = 80
-      TabOrder = 6
-      Text = '200.000 mm'
-    end
-    object Edit14: TEdit
-      Left = 31
-      Height = 23
-      Top = 165
-      Width = 80
-      TabOrder = 7
-      Text = '1.600 mm'
-    end
-  end
-  object PartsPanel: TPanel
-    AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = PlotPanel
-    AnchorSideTop.Side = asrBottom
-    AnchorSideBottom.Control = BoardPanel
-    Left = 0
-    Height = 272
-    Top = 136
-    Width = 280
-    Anchors = [akTop, akLeft, akBottom]
-    ClientHeight = 272
-    ClientWidth = 280
-    TabOrder = 5
-    object Partlabel_a: TLabel
-      Left = 11
-      Height = 15
-      Top = 8
-      Width = 6
-      Caption = 'a'
-      ParentColor = False
-    end
-    object Partlabel_b: TLabel
-      Left = 11
-      Height = 15
-      Top = 32
-      Width = 7
-      Caption = 'b'
-      ParentColor = False
-    end
-    object Partlabel_c: TLabel
-      Left = 11
-      Height = 15
-      Top = 56
-      Width = 6
-      Caption = 'c'
-      ParentColor = False
-    end
-    object Partlabel_d: TLabel
-      Left = 11
-      Height = 15
-      Top = 80
-      Width = 7
-      Caption = 'd'
-      ParentColor = False
-    end
-    object Partlabel_e: TLabel
-      Left = 11
-      Height = 15
-      Top = 104
-      Width = 6
-      Caption = 'e'
-      ParentColor = False
-    end
-    object Partlabel_f: TLabel
-      Left = 11
-      Height = 15
-      Top = 128
-      Width = 4
-      Caption = 'f'
-      ParentColor = False
-    end
-    object Partlabel_g: TLabel
-      Left = 11
-      Height = 15
-      Top = 152
-      Width = 7
-      Caption = 'g'
-      ParentColor = False
-    end
-    object Partlabel_h: TLabel
-      Left = 11
-      Height = 15
-      Top = 176
-      Width = 7
-      Caption = 'h'
-      ParentColor = False
-    end
-    object Partlabel_i: TLabel
-      Left = 11
-      Height = 15
-      Top = 200
-      Width = 3
-      Caption = 'i'
-      ParentColor = False
-    end
-    object Edit1: TEdit
-      Left = 32
-      Height = 23
-      Top = 8
-      Width = 208
-      TabOrder = 0
-    end
-    object Edit2: TEdit
-      Left = 32
-      Height = 23
-      Top = 32
-      Width = 208
-      TabOrder = 1
-    end
-    object Edit3: TEdit
-      Left = 32
-      Height = 23
-      Top = 56
-      Width = 208
-      TabOrder = 2
-    end
-    object Edit4: TEdit
-      Left = 32
-      Height = 23
-      Top = 80
-      Width = 208
-      TabOrder = 3
-    end
-    object Edit5: TEdit
-      Left = 32
-      Height = 23
-      Top = 104
-      Width = 208
-      TabOrder = 4
-    end
-    object Edit6: TEdit
-      Left = 32
-      Height = 23
-      Top = 128
-      Width = 208
-      TabOrder = 5
-    end
-    object Edit7: TEdit
-      Left = 32
-      Height = 23
-      Top = 152
-      Width = 208
-      TabOrder = 6
-    end
-    object Edit8: TEdit
-      Left = 32
-      Height = 23
-      Top = 176
-      Width = 208
-      TabOrder = 7
-    end
-    object Edit9: TEdit
-      Left = 32
-      Height = 23
-      Top = 200
-      Width = 208
-      TabOrder = 8
-    end
-  end
-  object PlotPanel: TPanel
-    AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = Owner
-    Left = 0
-    Height = 136
-    Top = 0
-    Width = 280
-    Anchors = [akTop, akLeft, akRight]
-    ClientHeight = 136
-    ClientWidth = 280
-    TabOrder = 6
-    object Points_Label: TLabel
-      Left = 8
-      Height = 15
-      Top = 8
-      Width = 33
-      Caption = 'Points'
-      ParentColor = False
-    end
-    object SmithRadius_Label: TLabel
-      Left = 8
-      Height = 15
-      Top = 32
-      Width = 66
-      Caption = 'Smith radius'
-      ParentColor = False
-    end
-    object Points_Editbox: TEdit
-      Left = 80
-      Height = 23
-      Top = 8
-      Width = 80
-      TabOrder = 0
-      Text = '100'
-    end
-    object Smith_Radius_Editbox: TEdit
-      Left = 80
-      Height = 23
-      Top = 32
-      Width = 80
-      TabOrder = 1
-      Text = '1'
-    end
-  end
   object SmithChart: TChart
     AnchorSideLeft.Control = Smith_Layout_Splitter
     AnchorSideLeft.Side = asrBottom
@@ -466,10 +96,10 @@ object MainForm: TMainForm
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Frequency_LayoutSmith_Splitter
-    Left = 1242
-    Height = 413
+    Left = 1136
+    Height = 425
     Top = 0
-    Width = 301
+    Width = 407
     AxisList = <    
       item
         Minors = <>
@@ -492,42 +122,44 @@ object MainForm: TMainForm
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = SmithChart
     AnchorSideBottom.Control = Frequency_LayoutSmith_Splitter
-    Left = 1232
-    Height = 413
+    Left = 1131
+    Height = 425
     Top = 0
-    Width = 10
+    Width = 5
     Align = alNone
     Anchors = [akTop, akBottom]
   end
   object Frequency_LayoutSmith_Splitter: TSplitter
-    AnchorSideLeft.Control = PartsPanel
+    AnchorSideLeft.Control = LeftSide_Splitter
     AnchorSideLeft.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 280
-    Height = 8
-    Top = 413
-    Width = 1263
+    Cursor = crVSplit
+    Left = 312
+    Height = 5
+    Top = 425
+    Width = 1231
     Align = alNone
     Anchors = [akLeft, akRight]
+    ResizeAnchor = akTop
   end
   object ScrollBox1: TScrollBox
-    AnchorSideLeft.Control = PartsPanel
+    AnchorSideLeft.Control = LeftSide_Splitter
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Smith_Layout_Splitter
     AnchorSideBottom.Control = Frequency_LayoutSmith_Splitter
-    Left = 280
-    Height = 413
+    Left = 312
+    Height = 425
     Top = 0
-    Width = 952
+    Width = 819
     HorzScrollBar.Page = 105
     VertScrollBar.Page = 105
     VertScrollBar.Tracking = True
     Anchors = [akTop, akLeft, akRight, akBottom]
-    ClientHeight = 409
-    ClientWidth = 948
-    TabOrder = 10
+    ClientHeight = 421
+    ClientWidth = 815
+    TabOrder = 7
     object PaintBox1: TPaintBox
       AnchorSideLeft.Control = ScrollBox1
       AnchorSideTop.Control = ScrollBox1
@@ -536,12 +168,277 @@ object MainForm: TMainForm
       AnchorSideBottom.Control = ScrollBox1
       AnchorSideBottom.Side = asrBottom
       Left = 0
-      Height = 409
+      Height = 421
       Top = 0
-      Width = 948
+      Width = 815
       Anchors = [akTop, akLeft, akRight, akBottom]
-      OnMouseMove = PaintBox1MouseMove
     end
+  end
+  object LeftSide_RootPanel: TPanel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = LeftSide_Splitter
+    AnchorSideBottom.Control = PuffCmdLstBox
+    Left = 0
+    Height = 632
+    Top = 0
+    Width = 307
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ClientHeight = 632
+    ClientWidth = 307
+    TabOrder = 8
+    object PlotPanel: TPanel
+      AnchorSideLeft.Control = LeftSide_RootPanel
+      AnchorSideTop.Control = LeftSide_RootPanel
+      AnchorSideRight.Control = LeftSide_RootPanel
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = PlotParts_Splitter
+      Left = 1
+      Height = 159
+      Top = 1
+      Width = 305
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = 'PlotPanel'
+      ClientHeight = 159
+      ClientWidth = 305
+      TabOrder = 0
+      object Points_Editbox: TEdit
+        Left = 80
+        Height = 23
+        Top = 16
+        Width = 80
+        TabOrder = 0
+        Text = '100'
+      end
+      object Points_Label: TLabel
+        Left = 8
+        Height = 15
+        Top = 16
+        Width = 33
+        Caption = 'Points'
+        ParentColor = False
+      end
+      object Smith_Radius_Editbox: TEdit
+        Left = 80
+        Height = 23
+        Top = 40
+        Width = 80
+        TabOrder = 1
+        Text = '1'
+      end
+      object SmithRadius_Label: TLabel
+        Left = 8
+        Height = 15
+        Top = 40
+        Width = 66
+        Caption = 'Smith radius'
+        ParentColor = False
+      end
+    end
+    object PartsPanel: TPanel
+      AnchorSideLeft.Control = LeftSide_RootPanel
+      AnchorSideTop.Control = PlotParts_Splitter
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = LeftSide_RootPanel
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = PartsBoard_Splitter
+      Left = 1
+      Height = 299
+      Top = 165
+      Width = 305
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = 'PartsPanel'
+      ClientHeight = 299
+      ClientWidth = 305
+      TabOrder = 1
+      object Partlabel_a: TLabel
+        Left = 8
+        Height = 15
+        Top = 8
+        Width = 6
+        Caption = 'a'
+        ParentColor = False
+      end
+      object Partlabel_b: TLabel
+        Left = 8
+        Height = 15
+        Top = 32
+        Width = 7
+        Caption = 'b'
+        ParentColor = False
+      end
+      object Partlabel_c: TLabel
+        Left = 8
+        Height = 15
+        Top = 56
+        Width = 6
+        Caption = 'c'
+        ParentColor = False
+      end
+      object Partlabel_d: TLabel
+        Left = 8
+        Height = 15
+        Top = 80
+        Width = 7
+        Caption = 'd'
+        ParentColor = False
+      end
+      object Partlabel_e: TLabel
+        Left = 8
+        Height = 15
+        Top = 104
+        Width = 6
+        Caption = 'e'
+        ParentColor = False
+      end
+      object Partlabel_f: TLabel
+        Left = 8
+        Height = 15
+        Top = 128
+        Width = 4
+        Caption = 'f'
+        ParentColor = False
+      end
+      object Partlabel_g: TLabel
+        Left = 8
+        Height = 15
+        Top = 152
+        Width = 7
+        Caption = 'g'
+        ParentColor = False
+      end
+      object Partlabel_h: TLabel
+        Left = 8
+        Height = 15
+        Top = 176
+        Width = 7
+        Caption = 'h'
+        ParentColor = False
+      end
+      object Partlabel_i: TLabel
+        Left = 8
+        Height = 15
+        Top = 200
+        Width = 3
+        Caption = 'i'
+        ParentColor = False
+      end
+      object Edit1: TEdit
+        Left = 40
+        Height = 23
+        Top = 8
+        Width = 208
+        TabOrder = 0
+      end
+      object Edit2: TEdit
+        Left = 40
+        Height = 23
+        Top = 32
+        Width = 208
+        TabOrder = 1
+      end
+      object Edit3: TEdit
+        Left = 40
+        Height = 23
+        Top = 56
+        Width = 208
+        TabOrder = 2
+      end
+      object Edit4: TEdit
+        Left = 40
+        Height = 23
+        Top = 80
+        Width = 208
+        TabOrder = 3
+      end
+      object Edit5: TEdit
+        Left = 40
+        Height = 23
+        Top = 104
+        Width = 208
+        TabOrder = 4
+      end
+      object Edit6: TEdit
+        Left = 40
+        Height = 23
+        Top = 128
+        Width = 208
+        TabOrder = 5
+      end
+      object Edit7: TEdit
+        Left = 40
+        Height = 23
+        Top = 152
+        Width = 208
+        TabOrder = 6
+      end
+      object Edit8: TEdit
+        Left = 40
+        Height = 23
+        Top = 176
+        Width = 208
+        TabOrder = 7
+      end
+      object Edit9: TEdit
+        Left = 40
+        Height = 23
+        Top = 200
+        Width = 208
+        TabOrder = 8
+      end
+    end
+    object BoardPanel: TPanel
+      AnchorSideLeft.Control = LeftSide_RootPanel
+      AnchorSideTop.Control = PartsBoard_Splitter
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = LeftSide_RootPanel
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = LeftSide_RootPanel
+      AnchorSideBottom.Side = asrBottom
+      Left = 1
+      Height = 162
+      Top = 469
+      Width = 305
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = 'BoardPanel'
+      TabOrder = 2
+    end
+    object PlotParts_Splitter: TSplitter
+      AnchorSideLeft.Control = LeftSide_RootPanel
+      AnchorSideRight.Control = LeftSide_RootPanel
+      AnchorSideRight.Side = asrBottom
+      Cursor = crVSplit
+      Left = 1
+      Height = 5
+      Top = 160
+      Width = 305
+      Align = alNone
+      Anchors = [akLeft, akRight]
+      ResizeAnchor = akTop
+    end
+    object PartsBoard_Splitter: TSplitter
+      AnchorSideLeft.Control = LeftSide_RootPanel
+      AnchorSideRight.Control = LeftSide_RootPanel
+      AnchorSideRight.Side = asrBottom
+      Cursor = crVSplit
+      Left = 1
+      Height = 5
+      Top = 464
+      Width = 305
+      Align = alNone
+      Anchors = [akLeft, akRight]
+      ResizeAnchor = akTop
+    end
+  end
+  object LeftSide_Splitter: TSplitter
+    AnchorSideTop.Control = Owner
+    AnchorSideBottom.Control = PuffCmdLstBox
+    Left = 307
+    Height = 632
+    Top = 0
+    Width = 5
+    Align = alNone
+    Anchors = [akTop, akLeft, akBottom]
   end
   object PuffMenu: TMainMenu
     left = 72

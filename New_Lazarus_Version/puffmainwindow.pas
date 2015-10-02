@@ -10,16 +10,17 @@ uses
 
 type
 
+  TMouseState = Record
+    PrevX, PrevY: Integer;
+    MouseIsDown: Boolean;
+    //mouse tool selected
+    IsDraggingComponent : Boolean;
+  end;
+
   { TMainForm }
 
   TMainForm = class(TForm)
-    Edit11: TEdit;
-    Edit12: TEdit;
-    Edit13: TEdit;
-    Edit14: TEdit;
-    fd_combobox: TComboBox;
     Edit1: TEdit;
-    Edit10: TEdit;
     Edit2: TEdit;
     Edit3: TEdit;
     Edit4: TEdit;
@@ -28,16 +29,9 @@ type
     Edit7: TEdit;
     Edit8: TEdit;
     Edit9: TEdit;
-    Label1: TLabel;
     PaintBox1: TPaintBox;
-    Points_Editbox: TEdit;
-    ScrollBox1: TScrollBox;
-    Smith_Radius_Editbox: TEdit;
-    FrequencyChart: TChart;
-    BoardPanel: TPanel;
+    LeftSide_RootPanel: TPanel;
     Partlabel_a: TLabel;
-    Points_Label: TLabel;
-    SmithRadius_Label: TLabel;
     Partlabel_b: TLabel;
     Partlabel_c: TLabel;
     Partlabel_d: TLabel;
@@ -46,19 +40,18 @@ type
     Partlabel_g: TLabel;
     Partlabel_h: TLabel;
     Partlabel_i: TLabel;
-    SmithChart: TChart;
-    Smith_Layout_Splitter: TSplitter;
-    Frequency_LayoutSmith_Splitter: TSplitter;
-    zd_edit: TEdit;
-    tab_combobox: TComboBox;
-    fd: TLabel;
-    er_label: TLabel;
-    h_label: TLabel;
-    c_label: TLabel;
-    s_label: TLabel;
-    zd: TLabel;
     PlotPanel: TPanel;
     PartsPanel: TPanel;
+    BoardPanel: TPanel;
+    PartsBoard_Splitter: TSplitter;
+    Points_Editbox: TEdit;
+    Points_Label: TLabel;
+    ScrollBox1: TScrollBox;
+    FrequencyChart: TChart;
+    SmithChart: TChart;
+    SmithRadius_Label: TLabel;
+    Smith_Layout_Splitter: TSplitter;
+    Frequency_LayoutSmith_Splitter: TSplitter;
     PuffInst : TPuffStruct;
     FrequencyChartLineSeries1: TLineSeries;
     MenuItem_Help: TMenuItem;
@@ -67,11 +60,13 @@ type
     PuffCmdLstBox: TListBox;
     PuffMenu: TMainMenu;
     PuffStatusBar: TStatusBar;
+    LeftSide_Splitter: TSplitter;
+    PlotParts_Splitter: TSplitter;
+    Smith_Radius_Editbox: TEdit;
+
     procedure FormCreate(Sender: TObject);
     procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
     procedure MenuItem_AboutClick(Sender: TObject);
-    procedure PaintBox1MouseMove(Sender: TObject; Shift: TShiftState; X,
-      Y: Integer);
   private
     { private declarations }
   public
@@ -130,11 +125,12 @@ begin
   'https://github.com/trayres/PUFF -> For updated Multi-Platform Lazarus version');
 end;
 
-procedure TMainForm.PaintBox1MouseMove(Sender: TObject; Shift: TShiftState; X,
+{procedure TMainForm.PaintBox1MouseMove(Sender: TObject; Shift: TShiftState; X,
   Y: Integer);
 begin
      PuffStatusBar.Panels[0].Text:='('+IntToStr(X)+','+IntToStr(Y)+')';
-end;
+end;}
+
 
 end.
 
