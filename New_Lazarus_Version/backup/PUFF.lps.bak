@@ -22,7 +22,6 @@
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="70"/>
         <CursorPos X="33" Y="105"/>
         <UsageCount Value="119"/>
@@ -184,13 +183,14 @@
         <Filename Value="smithchart.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SmithChart"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos Y="34"/>
+        <CursorPos X="80" Y="8"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit21>
     </Units>
-    <JumpHistory Count="28" HistoryIndex="27">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
         <Filename Value="puffmainwindow.pas"/>
         <Caret Line="48" Column="48" TopLine="22"/>
@@ -303,6 +303,10 @@
         <Filename Value="puffmainwindow.pas"/>
         <Caret Line="114" Column="46" TopLine="86"/>
       </Position28>
+      <Position29>
+        <Filename Value="smithchart.pas"/>
+        <Caret Line="34"/>
+      </Position29>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>
