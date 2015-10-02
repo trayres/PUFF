@@ -66,7 +66,7 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="4">
+    <Units Count="5">
       <Unit0>
         <Filename Value="PUFF.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -88,6 +88,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="PuffStruct"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="smithchart.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="SmithChart"/>
+      </Unit4>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

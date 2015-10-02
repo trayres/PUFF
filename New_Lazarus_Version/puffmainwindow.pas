@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, TAGraph, TASeries, Forms, Controls, Graphics,
-  Dialogs, StdCtrls, Menus, ComCtrls, ExtCtrls, PuffStruct;
+  Dialogs, StdCtrls, Menus, ComCtrls, ExtCtrls, PuffStruct, SmithChart;
 
 type
 
@@ -102,6 +102,7 @@ begin
   PuffCmdLstBox.Items.Add('>>');
   PuffCmdEdit.Clear;
   PuffCmdEdit.Text:='>>';
+  PrepareSmithChart(SmithChart);
 end;
 
 procedure TMainForm.FormMouseMove(Sender: TObject; Shift: TShiftState; X,

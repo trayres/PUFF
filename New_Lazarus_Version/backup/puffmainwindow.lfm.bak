@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 74
+  Left = 19
   Height = 758
-  Top = 199
+  Top = 141
   Width = 1543
   Caption = 'PUFF'
   ClientHeight = 738
@@ -407,23 +407,27 @@ object MainForm: TMainForm
       AnchorSideLeft.Control = LeftSide_RootPanel
       AnchorSideRight.Control = LeftSide_RootPanel
       AnchorSideRight.Side = asrBottom
+      Cursor = crVSplit
       Left = 1
       Height = 5
       Top = 160
       Width = 305
       Align = alNone
       Anchors = [akLeft, akRight]
+      ResizeAnchor = akTop
     end
     object PartsBoard_Splitter: TSplitter
       AnchorSideLeft.Control = LeftSide_RootPanel
       AnchorSideRight.Control = LeftSide_RootPanel
       AnchorSideRight.Side = asrBottom
+      Cursor = crVSplit
       Left = 1
       Height = 5
       Top = 464
       Width = 305
       Align = alNone
       Anchors = [akLeft, akRight]
+      ResizeAnchor = akTop
     end
   end
   object LeftSide_Splitter: TSplitter

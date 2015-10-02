@@ -9,7 +9,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, tachartlazaruspkg, puffmainwindow,
   { you can add units after this }
-  Dialogs, Classes;
+  Dialogs, Classes, SmithChart;
 
 {$R *.res}
 var
