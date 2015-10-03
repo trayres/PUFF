@@ -69,6 +69,8 @@ type
       Y: Integer);
     procedure LayoutPaintBoxPaint(Sender: TObject);
     procedure MenuItem_AboutClick(Sender: TObject);
+    procedure PuffCmdEditKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { private declarations }
   public
@@ -134,6 +136,14 @@ begin
   'http://www.its.caltech.edu/~mmic/puff.html -> for the original version' + sLineBreak +
   'http://wwwhome.cs.utwente.nl/~ptdeboer/ham/puff.html -> for the Linux version' + sLineBreak +
   'https://github.com/trayres/PUFF -> For updated Multi-Platform Lazarus version');
+end;
+
+procedure TMainForm.PuffCmdEditKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+var
+  CommandReturn : Integer;
+begin
+  CommandReturn := ParseCommand(PuffCmdEdit.Text);
 end;
 
 {procedure TMainForm.PaintBox1MouseMove(Sender: TObject; Shift: TShiftState; X,

@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 33
+  Left = 41
   Height = 758
-  Top = 188
+  Top = 142
   Width = 1543
   Caption = 'PUFF'
   ClientHeight = 738
@@ -34,6 +34,7 @@ object MainForm: TMainForm
     Width = 1543
     Anchors = [akLeft, akRight, akBottom]
     Constraints.MaxHeight = 23
+    OnKeyDown = PuffCmdEditKeyDown
     TabOrder = 1
     Text = '>>'
   end

@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 33
+  Left = 41
   Height = 758
-  Top = 188
+  Top = 142
   Width = 1543
   Caption = 'PUFF'
   ClientHeight = 738
@@ -34,6 +34,7 @@ object MainForm: TMainForm
     Width = 1543
     Anchors = [akLeft, akRight, akBottom]
     Constraints.MaxHeight = 23
+    OnKeyDown = PuffCmdEditKeyDown
     TabOrder = 1
     Text = '>>'
   end
@@ -220,7 +221,7 @@ object MainForm: TMainForm
       object Partlabel_a: TLabel
         Left = 8
         Height = 15
-        Top = 8
+        Top = 32
         Width = 6
         Caption = 'a'
         ParentColor = False
@@ -228,7 +229,7 @@ object MainForm: TMainForm
       object Partlabel_b: TLabel
         Left = 8
         Height = 15
-        Top = 32
+        Top = 56
         Width = 7
         Caption = 'b'
         ParentColor = False
@@ -236,7 +237,7 @@ object MainForm: TMainForm
       object Partlabel_c: TLabel
         Left = 8
         Height = 15
-        Top = 56
+        Top = 80
         Width = 6
         Caption = 'c'
         ParentColor = False
@@ -244,7 +245,7 @@ object MainForm: TMainForm
       object Partlabel_d: TLabel
         Left = 8
         Height = 15
-        Top = 80
+        Top = 104
         Width = 7
         Caption = 'd'
         ParentColor = False
@@ -252,7 +253,7 @@ object MainForm: TMainForm
       object Partlabel_e: TLabel
         Left = 8
         Height = 15
-        Top = 104
+        Top = 128
         Width = 6
         Caption = 'e'
         ParentColor = False
@@ -260,7 +261,7 @@ object MainForm: TMainForm
       object Partlabel_f: TLabel
         Left = 8
         Height = 15
-        Top = 128
+        Top = 152
         Width = 4
         Caption = 'f'
         ParentColor = False
@@ -268,7 +269,7 @@ object MainForm: TMainForm
       object Partlabel_g: TLabel
         Left = 8
         Height = 15
-        Top = 152
+        Top = 176
         Width = 7
         Caption = 'g'
         ParentColor = False
@@ -276,7 +277,7 @@ object MainForm: TMainForm
       object Partlabel_h: TLabel
         Left = 8
         Height = 15
-        Top = 176
+        Top = 200
         Width = 7
         Caption = 'h'
         ParentColor = False
@@ -284,7 +285,7 @@ object MainForm: TMainForm
       object Partlabel_i: TLabel
         Left = 8
         Height = 15
-        Top = 200
+        Top = 224
         Width = 3
         Caption = 'i'
         ParentColor = False
@@ -292,63 +293,63 @@ object MainForm: TMainForm
       object a_edit: TEdit
         Left = 40
         Height = 23
-        Top = 8
+        Top = 32
         Width = 208
         TabOrder = 0
       end
       object b_edit: TEdit
         Left = 40
         Height = 23
-        Top = 32
+        Top = 56
         Width = 208
         TabOrder = 1
       end
       object c_edit: TEdit
         Left = 40
         Height = 23
-        Top = 56
+        Top = 80
         Width = 208
         TabOrder = 2
       end
       object d_edit: TEdit
         Left = 40
         Height = 23
-        Top = 80
+        Top = 104
         Width = 208
         TabOrder = 3
       end
       object e_edit: TEdit
         Left = 40
         Height = 23
-        Top = 104
+        Top = 128
         Width = 208
         TabOrder = 4
       end
       object f_edit: TEdit
         Left = 40
         Height = 23
-        Top = 128
+        Top = 152
         Width = 208
         TabOrder = 5
       end
       object g_edit: TEdit
         Left = 40
         Height = 23
-        Top = 152
+        Top = 176
         Width = 208
         TabOrder = 6
       end
       object h_edit: TEdit
         Left = 40
         Height = 23
-        Top = 176
+        Top = 200
         Width = 208
         TabOrder = 7
       end
       object i_edit: TEdit
         Left = 40
         Height = 23
-        Top = 200
+        Top = 224
         Width = 208
         TabOrder = 8
       end
