@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 41
+  Left = 783
   Height = 758
-  Top = 142
+  Top = 104
   Width = 1543
   Caption = 'PUFF'
   ClientHeight = 738
@@ -86,7 +86,13 @@ object MainForm: TMainForm
       'TAChart'
     )
     Anchors = [akTop, akLeft, akRight, akBottom]
-    object FrequencyChartLineSeries1: TLineSeries
+    object FrequencyChartLineSeries_S11: TLineSeries
+    end
+    object FrequencyChartLineSeries_S12: TLineSeries
+    end
+    object FrequencyChartLineSeries_S21: TLineSeries
+    end
+    object FrequencyChartLineSeries_S22: TLineSeries
     end
   end
   object SmithChart: TChart
@@ -169,6 +175,8 @@ object MainForm: TMainForm
       Anchors = [akTop, akLeft, akRight, akBottom]
       ClientHeight = 159
       ClientWidth = 305
+      Color = clMedGray
+      ParentColor = False
       TabOrder = 0
       object Points_Editbox: TEdit
         Left = 80
@@ -202,6 +210,18 @@ object MainForm: TMainForm
         Caption = 'Smith radius'
         ParentColor = False
       end
+      object PlotLabel: TLabel
+        Left = 120
+        Height = 21
+        Top = 0
+        Width = 31
+        Caption = 'Plot'
+        Font.Color = clLime
+        Font.Height = -16
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
     end
     object PartsPanel: TPanel
       AnchorSideLeft.Control = LeftSide_RootPanel
@@ -217,6 +237,8 @@ object MainForm: TMainForm
       Anchors = [akTop, akLeft, akRight, akBottom]
       ClientHeight = 299
       ClientWidth = 305
+      Color = clMedGray
+      ParentColor = False
       TabOrder = 1
       object Partlabel_a: TLabel
         Left = 8
@@ -353,6 +375,18 @@ object MainForm: TMainForm
         Width = 208
         TabOrder = 8
       end
+      object PartsLabel: TLabel
+        Left = 120
+        Height = 21
+        Top = 8
+        Width = 38
+        Caption = 'Parts'
+        Font.Color = clYellow
+        Font.Height = -16
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
     end
     object BoardPanel: TPanel
       AnchorSideLeft.Control = LeftSide_RootPanel
@@ -367,7 +401,23 @@ object MainForm: TMainForm
       Top = 469
       Width = 305
       Anchors = [akTop, akLeft, akRight, akBottom]
+      ClientHeight = 162
+      ClientWidth = 305
+      Color = clMedGray
+      ParentColor = False
       TabOrder = 2
+      object BoardLabel: TLabel
+        Left = 120
+        Height = 21
+        Top = 8
+        Width = 45
+        Caption = 'Board'
+        Font.Color = clBlue
+        Font.Height = -16
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
     end
     object PlotParts_Splitter: TSplitter
       AnchorSideLeft.Control = LeftSide_RootPanel

@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, TAGraph, TASeries, Forms, Controls, Graphics,
   Dialogs, StdCtrls, Menus, ComCtrls, ExtCtrls, BGRAGraphicControl, BCPanel,
-  BGRAShape, PuffStruct, SmithChart, BGRABitmap, BGRABitmapTypes;
+  BGRAShape, PuffStruct, SmithChart, BGRABitmap, BGRABitmapTypes, LCLType;
 
 type
 
@@ -18,18 +18,30 @@ type
     IsDraggingComponent : Boolean;
   end;
 
+  TPuffCommand = (Invalid, TestCommand1, TestCommand2);
+
+  IPuffCommand = Interface
+  Function ParseCommand(inputString : string) : TPuffCommand;
+  end;
+
   { TMainForm }
 
-  TMainForm = class(TForm) {Should I add an interface, or static methods?}
+  TMainForm = class(TForm, IPuffCommand) {Should I add an interface, or static methods?}
     a_edit: TEdit;
     b_edit: TEdit;
     c_edit: TEdit;
     d_edit: TEdit;
     e_edit: TEdit;
+    FrequencyChartLineSeries_S12: TLineSeries;
+    FrequencyChartLineSeries_S21: TLineSeries;
+    FrequencyChartLineSeries_S22: TLineSeries;
     f_edit: TEdit;
     g_edit: TEdit;
     h_edit: TEdit;
     i_edit: TEdit;
+    BoardLabel: TLabel;
+    PartsLabel: TLabel;
+    PlotLabel: TLabel;
     LeftSide_RootPanel: TPanel;
     LayoutPaintBox: TPaintBox;
     Partlabel_a: TLabel;
@@ -53,7 +65,7 @@ type
     Smith_Layout_Splitter: TSplitter;
     Frequency_LayoutSmith_Splitter: TSplitter;
     PuffInst : TPuffStruct;
-    FrequencyChartLineSeries1: TLineSeries;
+    FrequencyChartLineSeries_S11: TLineSeries;
     MenuItem_Help: TMenuItem;
     MenuItem_About: TMenuItem;
     PuffCmdEdit: TEdit;
@@ -73,6 +85,7 @@ type
       Shift: TShiftState);
   private
     { private declarations }
+    function ParseCommand(inputString : String) : TPuffCommand;
   public
     { public declarations }
   end;
@@ -84,6 +97,12 @@ var
 implementation
 
 {$R *.lfm}
+
+
+function TMainForm.ParseCommand(inputString : String) : TPuffCommand;
+begin
+      ParseCommand := Invalid;
+end;
 
 { TMainForm }
 
@@ -141,16 +160,17 @@ end;
 procedure TMainForm.PuffCmdEditKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 var
-  CommandReturn : Integer;
+  CommandReturn : TPuffCommand;
 begin
+  if (Key = VK_RETURN) then
   CommandReturn := ParseCommand(PuffCmdEdit.Text);
-end;
+     case CommandReturn of
+         Invalid: begin
+              PuffCmdEdit.Text:='ENTERED A COMMAND, HOORAY!';
+         end;
+     end;
 
-{procedure TMainForm.PaintBox1MouseMove(Sender: TObject; Shift: TShiftState; X,
-  Y: Integer);
-begin
-     PuffStatusBar.Panels[0].Text:='('+IntToStr(X)+','+IntToStr(Y)+')';
-end;}
+end;
 
 
 end.
