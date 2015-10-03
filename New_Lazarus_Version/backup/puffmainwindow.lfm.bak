@@ -1,14 +1,13 @@
 object MainForm: TMainForm
-  Left = 19
+  Left = 33
   Height = 758
-  Top = 141
+  Top = 188
   Width = 1543
   Caption = 'PUFF'
   ClientHeight = 738
   ClientWidth = 1543
   Menu = PuffMenu
   OnCreate = FormCreate
-  OnMouseMove = FormMouseMove
   LCLVersion = '1.4.2.0'
   object PuffCmdLstBox: TListBox
     AnchorSideLeft.Control = Owner
@@ -143,37 +142,6 @@ object MainForm: TMainForm
     Anchors = [akLeft, akRight]
     ResizeAnchor = akTop
   end
-  object ScrollBox1: TScrollBox
-    AnchorSideLeft.Control = LeftSide_Splitter
-    AnchorSideLeft.Side = asrBottom
-    AnchorSideTop.Control = Owner
-    AnchorSideRight.Control = Smith_Layout_Splitter
-    AnchorSideBottom.Control = Frequency_LayoutSmith_Splitter
-    Left = 312
-    Height = 425
-    Top = 0
-    Width = 819
-    HorzScrollBar.Page = 105
-    VertScrollBar.Page = 105
-    VertScrollBar.Tracking = True
-    Anchors = [akTop, akLeft, akRight, akBottom]
-    ClientHeight = 421
-    ClientWidth = 815
-    TabOrder = 7
-    object PaintBox1: TPaintBox
-      AnchorSideLeft.Control = ScrollBox1
-      AnchorSideTop.Control = ScrollBox1
-      AnchorSideRight.Control = ScrollBox1
-      AnchorSideRight.Side = asrBottom
-      AnchorSideBottom.Control = ScrollBox1
-      AnchorSideBottom.Side = asrBottom
-      Left = 0
-      Height = 421
-      Top = 0
-      Width = 815
-      Anchors = [akTop, akLeft, akRight, akBottom]
-    end
-  end
   object LeftSide_RootPanel: TPanel
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -186,7 +154,7 @@ object MainForm: TMainForm
     Anchors = [akTop, akLeft, akRight, akBottom]
     ClientHeight = 632
     ClientWidth = 307
-    TabOrder = 8
+    TabOrder = 7
     object PlotPanel: TPanel
       AnchorSideLeft.Control = LeftSide_RootPanel
       AnchorSideTop.Control = LeftSide_RootPanel
@@ -198,14 +166,13 @@ object MainForm: TMainForm
       Top = 1
       Width = 305
       Anchors = [akTop, akLeft, akRight, akBottom]
-      Caption = 'PlotPanel'
       ClientHeight = 159
       ClientWidth = 305
       TabOrder = 0
       object Points_Editbox: TEdit
         Left = 80
         Height = 23
-        Top = 16
+        Top = 32
         Width = 80
         TabOrder = 0
         Text = '100'
@@ -213,7 +180,7 @@ object MainForm: TMainForm
       object Points_Label: TLabel
         Left = 8
         Height = 15
-        Top = 16
+        Top = 32
         Width = 33
         Caption = 'Points'
         ParentColor = False
@@ -221,7 +188,7 @@ object MainForm: TMainForm
       object Smith_Radius_Editbox: TEdit
         Left = 80
         Height = 23
-        Top = 40
+        Top = 56
         Width = 80
         TabOrder = 1
         Text = '1'
@@ -229,7 +196,7 @@ object MainForm: TMainForm
       object SmithRadius_Label: TLabel
         Left = 8
         Height = 15
-        Top = 40
+        Top = 56
         Width = 66
         Caption = 'Smith radius'
         ParentColor = False
@@ -247,7 +214,6 @@ object MainForm: TMainForm
       Top = 165
       Width = 305
       Anchors = [akTop, akLeft, akRight, akBottom]
-      Caption = 'PartsPanel'
       ClientHeight = 299
       ClientWidth = 305
       TabOrder = 1
@@ -323,63 +289,63 @@ object MainForm: TMainForm
         Caption = 'i'
         ParentColor = False
       end
-      object Edit1: TEdit
+      object a_edit: TEdit
         Left = 40
         Height = 23
         Top = 8
         Width = 208
         TabOrder = 0
       end
-      object Edit2: TEdit
+      object b_edit: TEdit
         Left = 40
         Height = 23
         Top = 32
         Width = 208
         TabOrder = 1
       end
-      object Edit3: TEdit
+      object c_edit: TEdit
         Left = 40
         Height = 23
         Top = 56
         Width = 208
         TabOrder = 2
       end
-      object Edit4: TEdit
+      object d_edit: TEdit
         Left = 40
         Height = 23
         Top = 80
         Width = 208
         TabOrder = 3
       end
-      object Edit5: TEdit
+      object e_edit: TEdit
         Left = 40
         Height = 23
         Top = 104
         Width = 208
         TabOrder = 4
       end
-      object Edit6: TEdit
+      object f_edit: TEdit
         Left = 40
         Height = 23
         Top = 128
         Width = 208
         TabOrder = 5
       end
-      object Edit7: TEdit
+      object g_edit: TEdit
         Left = 40
         Height = 23
         Top = 152
         Width = 208
         TabOrder = 6
       end
-      object Edit8: TEdit
+      object h_edit: TEdit
         Left = 40
         Height = 23
         Top = 176
         Width = 208
         TabOrder = 7
       end
-      object Edit9: TEdit
+      object i_edit: TEdit
         Left = 40
         Height = 23
         Top = 200
@@ -400,7 +366,6 @@ object MainForm: TMainForm
       Top = 469
       Width = 305
       Anchors = [akTop, akLeft, akRight, akBottom]
-      Caption = 'BoardPanel'
       TabOrder = 2
     end
     object PlotParts_Splitter: TSplitter
@@ -440,9 +405,22 @@ object MainForm: TMainForm
     Align = alNone
     Anchors = [akTop, akLeft, akBottom]
   end
+  object LayoutPaintBox: TPaintBox
+    AnchorSideLeft.Control = LeftSide_Splitter
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Smith_Layout_Splitter
+    AnchorSideBottom.Control = Frequency_LayoutSmith_Splitter
+    Left = 307
+    Height = 425
+    Top = 0
+    Width = 824
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    OnMouseMove = LayoutPaintBoxMouseMove
+    OnPaint = LayoutPaintBoxPaint
+  end
   object PuffMenu: TMainMenu
-    left = 72
-    top = 64
+    left = 216
+    top = 96
     object MenuItem_Help: TMenuItem
       Caption = 'Help'
       object MenuItem_About: TMenuItem

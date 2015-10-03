@@ -14,7 +14,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="43" Y="22"/>
-        <UsageCount Value="119"/>
+        <UsageCount Value="121"/>
       </Unit0>
       <Unit1>
         <Filename Value="puffmainwindow.pas"/>
@@ -22,9 +22,9 @@
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="70"/>
-        <CursorPos X="33" Y="105"/>
-        <UsageCount Value="119"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="13" Y="19"/>
+        <UsageCount Value="121"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -34,19 +34,28 @@
         <UnitName Value="PuffInit"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="17"/>
-        <UsageCount Value="119"/>
+        <UsageCount Value="121"/>
       </Unit2>
       <Unit3>
         <Filename Value="puffstruct.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="PuffStruct"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="11"/>
-        <CursorPos X="14" Y="59"/>
-        <UsageCount Value="119"/>
+        <TopLine Value="13"/>
+        <CursorPos X="30" Y="57"/>
+        <UsageCount Value="121"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
+        <Filename Value="smithchart.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="SmithChart"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="4" Y="32"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit4>
+      <Unit5>
         <Filename Value="unit1.pas"/>
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
@@ -55,142 +64,132 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="55" Y="44"/>
         <UsageCount Value="33"/>
-      </Unit4>
-      <Unit5>
+      </Unit5>
+      <Unit6>
         <Filename Value="C:\lazarus\lcl\forms.pp"/>
         <UnitName Value="Forms"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1243"/>
         <CursorPos X="3" Y="1263"/>
         <UsageCount Value="2"/>
-      </Unit5>
-      <Unit6>
+      </Unit6>
+      <Unit7>
         <Filename Value="C:\lazarus\lcl\dialogs.pp"/>
         <UnitName Value="Dialogs"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="382"/>
         <CursorPos X="11" Y="522"/>
         <UsageCount Value="5"/>
-      </Unit6>
-      <Unit7>
+      </Unit7>
+      <Unit8>
         <Filename Value="C:\lazarus\components\tachart\tagraph.pas"/>
         <UnitName Value="TAGraph"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="3" Y="172"/>
         <UsageCount Value="1"/>
-      </Unit7>
-      <Unit8>
+      </Unit8>
+      <Unit9>
         <Filename Value="C:\lazarus\fpc\2.6.4\source\rtl\objpas\classes\classesh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="667"/>
         <CursorPos X="14" Y="699"/>
         <UsageCount Value="2"/>
-      </Unit8>
-      <Unit9>
+      </Unit9>
+      <Unit10>
         <Filename Value="D:\lazarus\fpc\2.6.4\source\rtl\inc\matrix.pp"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="73"/>
         <UsageCount Value="3"/>
-      </Unit9>
-      <Unit10>
+      </Unit10>
+      <Unit11>
         <Filename Value="D:\lazarus\components\tachart\tagraph.pas"/>
         <UnitName Value="TAGraph"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1647"/>
         <CursorPos X="20" Y="1703"/>
         <UsageCount Value="10"/>
-      </Unit10>
-      <Unit11>
+      </Unit11>
+      <Unit12>
         <Filename Value="D:\lazarus\components\tachart\tachartaxisutils.pas"/>
         <UnitName Value="TAChartAxisUtils"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="39"/>
         <CursorPos X="3" Y="65"/>
         <UsageCount Value="10"/>
-      </Unit11>
-      <Unit12>
+      </Unit12>
+      <Unit13>
         <Filename Value="D:\lazarus\components\tachart\tatypes.pas"/>
         <UnitName Value="TATypes"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="17"/>
         <CursorPos X="38" Y="43"/>
         <UsageCount Value="10"/>
-      </Unit12>
-      <Unit13>
+      </Unit13>
+      <Unit14>
         <Filename Value="D:\lazarus\components\tachart\tachartutils.pas"/>
         <UnitName Value="TAChartUtils"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="270"/>
         <CursorPos X="10" Y="295"/>
         <UsageCount Value="10"/>
-      </Unit13>
-      <Unit14>
+      </Unit14>
+      <Unit15>
         <Filename Value="D:\lazarus\components\tachart\taguiconnector.pas"/>
         <UnitName Value="TAGUIConnector"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="9"/>
         <CursorPos X="21" Y="29"/>
         <UsageCount Value="10"/>
-      </Unit14>
-      <Unit15>
+      </Unit15>
+      <Unit16>
         <Filename Value="D:\lazarus\fpc\2.6.4\source\rtl\objpas\classes\classesh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1635"/>
         <CursorPos X="3" Y="1661"/>
         <UsageCount Value="10"/>
-      </Unit15>
-      <Unit16>
+      </Unit16>
+      <Unit17>
         <Filename Value="D:\lazarus\components\tachart\tadrawutils.pas"/>
         <UnitName Value="TADrawUtils"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="80"/>
         <CursorPos X="15" Y="105"/>
         <UsageCount Value="10"/>
-      </Unit16>
-      <Unit17>
+      </Unit17>
+      <Unit18>
         <Filename Value="D:\lazarus\lcl\controls.pp"/>
         <UnitName Value="Controls"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="998"/>
         <CursorPos X="25" Y="1533"/>
         <UsageCount Value="10"/>
-      </Unit17>
-      <Unit18>
+      </Unit18>
+      <Unit19>
         <Filename Value="D:\lazarus\lcl\lclclasses.pp"/>
         <UnitName Value="LCLClasses"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="16"/>
         <CursorPos X="35" Y="42"/>
         <UsageCount Value="10"/>
-      </Unit18>
-      <Unit19>
+      </Unit19>
+      <Unit20>
         <Filename Value="D:\lazarus\lcl\comctrls.pp"/>
         <UnitName Value="ComCtrls"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="114"/>
         <CursorPos X="33" Y="119"/>
         <UsageCount Value="9"/>
-      </Unit19>
-      <Unit20>
+      </Unit20>
+      <Unit21>
         <Filename Value="D:\lazarus\lcl\lcltype.pp"/>
         <UnitName Value="LCLType"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="116"/>
         <CursorPos X="3" Y="138"/>
         <UsageCount Value="9"/>
-      </Unit20>
-      <Unit21>
-        <Filename Value="smithchart.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="SmithChart"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <CursorPos X="80" Y="8"/>
-        <UsageCount Value="20"/>
-        <Loaded Value="True"/>
       </Unit21>
     </Units>
-    <JumpHistory Count="29" HistoryIndex="28">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="puffmainwindow.pas"/>
         <Caret Line="48" Column="48" TopLine="22"/>
@@ -307,6 +306,10 @@
         <Filename Value="smithchart.pas"/>
         <Caret Line="34"/>
       </Position29>
+      <Position30>
+        <Filename Value="puffmainwindow.pas"/>
+        <Caret Line="19" Column="13"/>
+      </Position30>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>

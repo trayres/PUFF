@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, TAGraph, TASeries, Forms, Controls, Graphics,
-  Dialogs, StdCtrls, Menus, ComCtrls, ExtCtrls, PuffStruct, SmithChart;
+  Dialogs, StdCtrls, Menus, ComCtrls, ExtCtrls, BGRAGraphicControl, BCPanel,
+  BGRAShape, PuffStruct, SmithChart, BGRABitmap, BGRABitmapTypes;
 
 type
 
@@ -20,17 +21,17 @@ type
   { TMainForm }
 
   TMainForm = class(TForm)
-    Edit1: TEdit;
-    Edit2: TEdit;
-    Edit3: TEdit;
-    Edit4: TEdit;
-    Edit5: TEdit;
-    Edit6: TEdit;
-    Edit7: TEdit;
-    Edit8: TEdit;
-    Edit9: TEdit;
-    PaintBox1: TPaintBox;
+    a_edit: TEdit;
+    b_edit: TEdit;
+    c_edit: TEdit;
+    d_edit: TEdit;
+    e_edit: TEdit;
+    f_edit: TEdit;
+    g_edit: TEdit;
+    h_edit: TEdit;
+    i_edit: TEdit;
     LeftSide_RootPanel: TPanel;
+    LayoutPaintBox: TPaintBox;
     Partlabel_a: TLabel;
     Partlabel_b: TLabel;
     Partlabel_c: TLabel;
@@ -46,7 +47,6 @@ type
     PartsBoard_Splitter: TSplitter;
     Points_Editbox: TEdit;
     Points_Label: TLabel;
-    ScrollBox1: TScrollBox;
     FrequencyChart: TChart;
     SmithChart: TChart;
     SmithRadius_Label: TLabel;
@@ -65,7 +65,9 @@ type
     Smith_Radius_Editbox: TEdit;
 
     procedure FormCreate(Sender: TObject);
-    procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
+    procedure LayoutPaintBoxMouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
+    procedure LayoutPaintBoxPaint(Sender: TObject);
     procedure MenuItem_AboutClick(Sender: TObject);
   private
     { private declarations }
@@ -105,11 +107,19 @@ begin
   PrepareSmithChart(SmithChart);
 end;
 
-procedure TMainForm.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
-  Y: Integer);
+procedure TMainForm.LayoutPaintBoxMouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: Integer);
 begin
-   PuffStatusBar.Panels[0].Text:='('+IntToStr(X)+','+IntToStr(Y)+')';
-   //if (PuffStatusBar.Panels[0].Text Size > Width
+     PuffStatusBar.Panels[0].Text:='('+IntToStr(X)+','+IntToStr(Y)+')';
+end;
+
+procedure TMainForm.LayoutPaintBoxPaint(Sender: TObject);
+var bmp: TBGRABitmap;
+begin
+  bmp := TBGRABitmap.Create(ClientWidth, ClientHeight, BGRABlack);
+  bmp.FillRect(20, 20, 100, 40, BGRA(255,192,0), dmSet);  //fill an orange rectangle
+  bmp.Draw(LayoutPaintBox.Canvas, 0, 0, True);                           //render BGRABitmap on the form
+  bmp.Free;                                               //free memory
 end;
 
 procedure TMainForm.MenuItem_AboutClick(Sender: TObject);
