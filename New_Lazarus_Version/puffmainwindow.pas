@@ -1,6 +1,6 @@
 unit puffmainwindow;
 
-{$mode objfpc}{$H+}
+{$mode objfpc}{$H+}{$STATIC ON}
 
 interface
 
@@ -23,6 +23,24 @@ type
   IPuffCommand = Interface
   Function ParseCommand(inputString : string) : TPuffCommand;
   end;
+
+  {ILayout = Interface
+   }
+   //Add a base class color, width
+   TSchematicObjectComponent = (Line, Rectangle, Ellipse, Arc);
+
+   TSchematicObject = class
+   components : array of TSchematicObjectComponent;
+   BBox       : TRect;
+   end;
+
+   TSchematicLibrary = class
+   libraryItem : array of TSchematicObject;
+   end;
+
+   TSchematic = class
+   instance : array of TSchematicObject;static;
+   end;
 
   { TMainForm }
 
@@ -86,6 +104,7 @@ type
   private
     { private declarations }
     function ParseCommand(inputString : String) : TPuffCommand;
+
   public
     { public declarations }
   end;
