@@ -72,7 +72,7 @@
         <PackageName Value="LCL"/>
       </Item4>
     </RequiredPackages>
-    <Units Count="5">
+    <Units Count="6">
       <Unit0>
         <Filename Value="PUFF.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -99,6 +99,13 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="SmithChart"/>
       </Unit4>
+      <Unit5>
+        <Filename Value="debugformunit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DebugForm"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="DebugFormUnit"/>
+      </Unit5>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

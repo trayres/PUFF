@@ -1,0 +1,19 @@
+
+
+Octave: ', "
+Matlab: '
+
+Octave: end, (endif, endwhile, endfunction, ect...)
+Matlab: end
+
+Octave: fprintf, printf
+Matlab: fprintf
+
+Octave: %, #
+Matlab: %
+
+Octave: ~, !
+Matlab: ~
+
+Octave: 
+Matlab: 

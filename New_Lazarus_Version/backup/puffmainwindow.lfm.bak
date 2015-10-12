@@ -1,13 +1,14 @@
 object MainForm: TMainForm
-  Left = 55
-  Height = 758
-  Top = 116
+  Left = 71
+  Height = 760
+  Top = 137
   Width = 1543
   Caption = 'PUFF'
-  ClientHeight = 738
+  ClientHeight = 740
   ClientWidth = 1543
   Menu = PuffMenu
   OnCreate = FormCreate
+  OnShow = FormShow
   LCLVersion = '1.4.2.0'
   object PuffCmdLstBox: TListBox
     AnchorSideLeft.Control = Owner
@@ -16,7 +17,7 @@ object MainForm: TMainForm
     AnchorSideBottom.Control = PuffCmdEdit
     Left = 0
     Height = 60
-    Top = 632
+    Top = 634
     Width = 1543
     Anchors = [akLeft, akRight, akBottom]
     Constraints.MaxHeight = 60
@@ -30,13 +31,12 @@ object MainForm: TMainForm
     AnchorSideBottom.Control = PuffStatusBar
     Left = 0
     Height = 23
-    Top = 692
+    Top = 694
     Width = 1543
     Anchors = [akLeft, akRight, akBottom]
     Constraints.MaxHeight = 23
     OnKeyDown = PuffCmdEditKeyDown
     TabOrder = 1
-    Text = '>>'
   end
   object PuffStatusBar: TStatusBar
     AnchorSideLeft.Control = Owner
@@ -46,14 +46,14 @@ object MainForm: TMainForm
     AnchorSideBottom.Side = asrBottom
     Left = 0
     Height = 23
-    Top = 715
+    Top = 717
     Width = 1543
     Panels = <    
       item
-        Width = 80
+        Width = 150
       end    
       item
-        Width = 50
+        Width = 150
       end>
     SimplePanel = False
   end
@@ -66,8 +66,8 @@ object MainForm: TMainForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = PuffCmdLstBox
     Left = 312
-    Height = 202
-    Top = 430
+    Height = 203
+    Top = 431
     Width = 1231
     AxisList = <    
       item
@@ -102,10 +102,10 @@ object MainForm: TMainForm
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Frequency_LayoutSmith_Splitter
-    Left = 1136
-    Height = 425
+    Left = 1165
+    Height = 426
     Top = 0
-    Width = 407
+    Width = 378
     AxisList = <    
       item
         Minors = <>
@@ -128,8 +128,8 @@ object MainForm: TMainForm
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = SmithChart
     AnchorSideBottom.Control = Frequency_LayoutSmith_Splitter
-    Left = 1131
-    Height = 425
+    Left = 1160
+    Height = 426
     Top = 0
     Width = 5
     Align = alNone
@@ -143,7 +143,7 @@ object MainForm: TMainForm
     Cursor = crVSplit
     Left = 312
     Height = 5
-    Top = 425
+    Top = 426
     Width = 1231
     Align = alNone
     Anchors = [akLeft, akRight]
@@ -155,11 +155,11 @@ object MainForm: TMainForm
     AnchorSideRight.Control = LeftSide_Splitter
     AnchorSideBottom.Control = PuffCmdLstBox
     Left = 0
-    Height = 632
+    Height = 634
     Top = 0
     Width = 307
     Anchors = [akTop, akLeft, akRight, akBottom]
-    ClientHeight = 632
+    ClientHeight = 634
     ClientWidth = 307
     TabOrder = 7
     object PlotPanel: TPanel
@@ -169,11 +169,11 @@ object MainForm: TMainForm
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = PlotParts_Splitter
       Left = 1
-      Height = 159
+      Height = 160
       Top = 1
       Width = 305
       Anchors = [akTop, akLeft, akRight, akBottom]
-      ClientHeight = 159
+      ClientHeight = 160
       ClientWidth = 305
       Color = clMedGray
       ParentColor = False
@@ -232,7 +232,7 @@ object MainForm: TMainForm
       AnchorSideBottom.Control = PartsBoard_Splitter
       Left = 1
       Height = 299
-      Top = 165
+      Top = 166
       Width = 305
       Anchors = [akTop, akLeft, akRight, akBottom]
       ClientHeight = 299
@@ -397,11 +397,11 @@ object MainForm: TMainForm
       AnchorSideBottom.Control = LeftSide_RootPanel
       AnchorSideBottom.Side = asrBottom
       Left = 1
-      Height = 162
-      Top = 469
+      Height = 163
+      Top = 470
       Width = 305
       Anchors = [akTop, akLeft, akRight, akBottom]
-      ClientHeight = 162
+      ClientHeight = 163
       ClientWidth = 305
       Color = clMedGray
       ParentColor = False
@@ -426,7 +426,7 @@ object MainForm: TMainForm
       Cursor = crVSplit
       Left = 1
       Height = 5
-      Top = 160
+      Top = 161
       Width = 305
       Align = alNone
       Anchors = [akLeft, akRight]
@@ -439,7 +439,7 @@ object MainForm: TMainForm
       Cursor = crVSplit
       Left = 1
       Height = 5
-      Top = 464
+      Top = 465
       Width = 305
       Align = alNone
       Anchors = [akLeft, akRight]
@@ -450,7 +450,7 @@ object MainForm: TMainForm
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = PuffCmdLstBox
     Left = 307
-    Height = 632
+    Height = 634
     Top = 0
     Width = 5
     Align = alNone
@@ -462,12 +462,13 @@ object MainForm: TMainForm
     AnchorSideRight.Control = Smith_Layout_Splitter
     AnchorSideBottom.Control = Frequency_LayoutSmith_Splitter
     Left = 307
-    Height = 425
+    Height = 426
     Top = 0
-    Width = 824
+    Width = 853
     Anchors = [akTop, akLeft, akRight, akBottom]
     OnMouseMove = LayoutPaintBoxMouseMove
     OnPaint = LayoutPaintBoxPaint
+    OnResize = LayoutPaintBoxResize
   end
   object PuffMenu: TMainMenu
     left = 216
@@ -477,6 +478,10 @@ object MainForm: TMainForm
       object MenuItem_About: TMenuItem
         Caption = 'About'
         OnClick = MenuItem_AboutClick
+      end
+      object MenuItem_ShowDebug: TMenuItem
+        Caption = 'Debug'
+        OnClick = MenuItem_ShowDebugClick
       end
     end
   end

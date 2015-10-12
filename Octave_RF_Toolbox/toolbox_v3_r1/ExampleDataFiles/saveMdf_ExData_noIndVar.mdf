@@ -1,0 +1,13 @@
+! ~~~~~~~~~~~~~~~~~~~~
+! comment_1
+! comment_2
+! comment_3
+BEGIN DSCRDATA
+% column_1 column_2 column_3
+1	2	3
+4	5	6
+7	8	9
+1	2	3
+4	5	6
+END
+ 

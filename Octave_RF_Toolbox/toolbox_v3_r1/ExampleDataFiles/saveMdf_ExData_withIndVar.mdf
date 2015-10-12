@@ -1,0 +1,24 @@
+! ~~~~~~~~~~~~~~~~~~~~
+! comment_1
+! comment_2
+! comment_3
+VAR column_1=1
+BEGIN DSCRDATA
+% column_2 column_3
+2	3
+2	3
+END
+ 
+VAR column_1=4
+BEGIN DSCRDATA
+% column_2 column_3
+5	6
+5	6
+END
+ 
+VAR column_1=7
+BEGIN DSCRDATA
+% column_2 column_3
+8	9
+END
+ 
