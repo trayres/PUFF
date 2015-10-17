@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 71
+  Left = 60
   Height = 760
-  Top = 137
+  Top = 149
   Width = 1543
   Caption = 'PUFF'
   ClientHeight = 740
@@ -10,34 +10,6 @@ object MainForm: TMainForm
   OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '1.4.2.0'
-  object PuffCmdLstBox: TListBox
-    AnchorSideLeft.Control = Owner
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = PuffCmdEdit
-    Left = 0
-    Height = 60
-    Top = 634
-    Width = 1543
-    Anchors = [akLeft, akRight, akBottom]
-    Constraints.MaxHeight = 60
-    ItemHeight = 0
-    TabOrder = 0
-  end
-  object PuffCmdEdit: TEdit
-    AnchorSideLeft.Control = Owner
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = PuffStatusBar
-    Left = 0
-    Height = 23
-    Top = 694
-    Width = 1543
-    Anchors = [akLeft, akRight, akBottom]
-    Constraints.MaxHeight = 23
-    OnKeyDown = PuffCmdEditKeyDown
-    TabOrder = 1
-  end
   object PuffStatusBar: TStatusBar
     AnchorSideLeft.Control = Owner
     AnchorSideRight.Control = Owner
@@ -64,9 +36,9 @@ object MainForm: TMainForm
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = PuffCmdLstBox
+    AnchorSideBottom.Control = PuffStatusBar
     Left = 312
-    Height = 203
+    Height = 286
     Top = 431
     Width = 1231
     AxisList = <    
@@ -153,15 +125,46 @@ object MainForm: TMainForm
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = LeftSide_Splitter
-    AnchorSideBottom.Control = PuffCmdLstBox
+    AnchorSideBottom.Control = PuffStatusBar
     Left = 0
-    Height = 634
+    Height = 717
     Top = 0
     Width = 307
     Anchors = [akTop, akLeft, akRight, akBottom]
-    ClientHeight = 634
+    ClientHeight = 717
     ClientWidth = 307
-    TabOrder = 7
+    TabOrder = 5
+    object BoardPanel: TPanel
+      AnchorSideLeft.Control = LeftSide_RootPanel
+      AnchorSideTop.Control = PartsBoard_Splitter
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = LeftSide_RootPanel
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = LeftSide_RootPanel
+      AnchorSideBottom.Side = asrBottom
+      Left = 1
+      Height = 185
+      Top = 531
+      Width = 305
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      ClientHeight = 185
+      ClientWidth = 305
+      Color = clMedGray
+      ParentColor = False
+      TabOrder = 2
+      object BoardLabel: TLabel
+        Left = 120
+        Height = 21
+        Top = 8
+        Width = 45
+        Caption = 'Board'
+        Font.Color = clBlue
+        Font.Height = -16
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+    end
     object PlotPanel: TPanel
       AnchorSideLeft.Control = LeftSide_RootPanel
       AnchorSideTop.Control = LeftSide_RootPanel
@@ -169,11 +172,11 @@ object MainForm: TMainForm
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = PlotParts_Splitter
       Left = 1
-      Height = 160
+      Height = 181
       Top = 1
       Width = 305
       Anchors = [akTop, akLeft, akRight, akBottom]
-      ClientHeight = 160
+      ClientHeight = 181
       ClientWidth = 305
       Color = clMedGray
       ParentColor = False
@@ -231,11 +234,11 @@ object MainForm: TMainForm
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = PartsBoard_Splitter
       Left = 1
-      Height = 299
-      Top = 166
+      Height = 339
+      Top = 187
       Width = 305
       Anchors = [akTop, akLeft, akRight, akBottom]
-      ClientHeight = 299
+      ClientHeight = 339
       ClientWidth = 305
       Color = clMedGray
       ParentColor = False
@@ -388,37 +391,6 @@ object MainForm: TMainForm
         ParentFont = False
       end
     end
-    object BoardPanel: TPanel
-      AnchorSideLeft.Control = LeftSide_RootPanel
-      AnchorSideTop.Control = PartsBoard_Splitter
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = LeftSide_RootPanel
-      AnchorSideRight.Side = asrBottom
-      AnchorSideBottom.Control = LeftSide_RootPanel
-      AnchorSideBottom.Side = asrBottom
-      Left = 1
-      Height = 163
-      Top = 470
-      Width = 305
-      Anchors = [akTop, akLeft, akRight, akBottom]
-      ClientHeight = 163
-      ClientWidth = 305
-      Color = clMedGray
-      ParentColor = False
-      TabOrder = 2
-      object BoardLabel: TLabel
-        Left = 120
-        Height = 21
-        Top = 8
-        Width = 45
-        Caption = 'Board'
-        Font.Color = clBlue
-        Font.Height = -16
-        Font.Style = [fsBold]
-        ParentColor = False
-        ParentFont = False
-      end
-    end
     object PlotParts_Splitter: TSplitter
       AnchorSideLeft.Control = LeftSide_RootPanel
       AnchorSideRight.Control = LeftSide_RootPanel
@@ -426,7 +398,7 @@ object MainForm: TMainForm
       Cursor = crVSplit
       Left = 1
       Height = 5
-      Top = 161
+      Top = 182
       Width = 305
       Align = alNone
       Anchors = [akLeft, akRight]
@@ -439,7 +411,7 @@ object MainForm: TMainForm
       Cursor = crVSplit
       Left = 1
       Height = 5
-      Top = 465
+      Top = 526
       Width = 305
       Align = alNone
       Anchors = [akLeft, akRight]
@@ -448,7 +420,6 @@ object MainForm: TMainForm
   end
   object LeftSide_Splitter: TSplitter
     AnchorSideTop.Control = Owner
-    AnchorSideBottom.Control = PuffCmdLstBox
     Left = 307
     Height = 634
     Top = 0
@@ -473,6 +444,9 @@ object MainForm: TMainForm
   object PuffMenu: TMainMenu
     left = 216
     top = 96
+    object MenuItem_File: TMenuItem
+      Caption = 'File'
+    end
     object MenuItem_Help: TMenuItem
       Caption = 'Help'
       object MenuItem_About: TMenuItem

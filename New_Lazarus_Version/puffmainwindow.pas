@@ -11,6 +11,8 @@ uses
 
 type
 
+
+
   TMouseState = record
     PrevX, PrevY: integer;
     MouseIsDown: boolean;
@@ -18,11 +20,11 @@ type
     IsDraggingComponent: boolean;
   end;
 
-  TPuffCommand = (Invalid, ZoomIn, ZoomOut);
+  //TPuffCommand = (Invalid, ZoomIn, ZoomOut);
 
-  IPuffCommand = interface
+  {IPuffCommand = interface
     function ParseCommand(inputString: string): TPuffCommand;
-  end;
+  end;}
 
   {ILayout = Interface
    }
@@ -70,27 +72,34 @@ type
     BBox: TRectTLBRreal; //Remember, this is in world coordinates!
   end;
 
+  TSchematicObjectArray = array of TSchematicObject;
+
   TSchematicLibrary = class
     libraryItem: array of TSchematicObject;
   end;
 
   TSchematic = class
-    class var instances: array of TSchematicObject;
+    class var total_instances: array of TSchematicObject;
+    class var number_of_total_instances : integer;
   public
+    current_viewport_instances : array of TSchematicObject;
     ZoomValue     : Real;
     ZoomInt       : Integer;
     WorldTLBRreal : TRectTLBRreal;
     ViewTLBRreal  : TRectTLBRreal;
     OriginPt : TPointReal;
     ScreenRez: integer;
-    SchWidthPixels  : integer;
+    SchWidthPixels  : integer;   //TODO: Should probably be private
     SchHeightPixels : integer;
     SchWidthInches: real;
     SchHeightInches: real;
     VCenter       : TPointReal;  //Center of the viewport
     constructor Create(var InputTextFile: TextFile);
     procedure ColdBootSchematic; //Gets initial window/screen info
+    procedure getSchematicItems(var cvi : TSchematicObjectArray); //Uses ViewTLBRreal and class variable instances to determine what is visible, returns that list via
+    function  SpanCheck(Mode : char; item : TRectTLBRreal) : boolean;
     //procedure   SetupSchematic;    //Call on window resize
+    //procedure ResizeSchematic;
     procedure ZoomIn;
     procedure ZoomOut;
     //procedure drawSchematic;
@@ -109,7 +118,7 @@ type
 
   { TMainForm }
 
-  TMainForm = class(TForm, IPuffCommand) {Should I add an interface, or static methods?}
+  TMainForm = class(TForm) {Should I add an interface, or static methods?}
     a_edit: TEdit;
     b_edit: TEdit;
     c_edit: TEdit;
@@ -123,6 +132,7 @@ type
     h_edit: TEdit;
     i_edit: TEdit;
     BoardLabel: TLabel;
+    MenuItem_File: TMenuItem;
     MenuItem_ShowDebug: TMenuItem;
     PartsLabel: TLabel;
     PlotLabel: TLabel;
@@ -152,8 +162,6 @@ type
     FrequencyChartLineSeries_S11: TLineSeries;
     MenuItem_Help: TMenuItem;
     MenuItem_About: TMenuItem;
-    PuffCmdEdit: TEdit;
-    PuffCmdLstBox: TListBox;
     PuffMenu: TMainMenu;
     PuffStatusBar: TStatusBar;
     LeftSide_Splitter: TSplitter;
@@ -169,12 +177,12 @@ type
     procedure LayoutPaintBoxResize(Sender: TObject);
     procedure MenuItem_AboutClick(Sender: TObject);
     procedure MenuItem_ShowDebugClick(Sender: TObject);
-    procedure PuffCmdEditKeyDown(Sender: TObject; var Key: word;
-      Shift: TShiftState);
+   { procedure PuffCmdEditKeyDown(Sender: TObject; var Key: word;
+      Shift: TShiftState);}
     procedure UpdateStatusBar(X,Y : Integer);
   private
     { private declarations }
-    function ParseCommand(inputString: string): TPuffCommand;
+    //function ParseCommand(inputString: string): TPuffCommand;
 
   public
     { public declarations }
@@ -196,6 +204,7 @@ uses DebugFormUnit;
 
 constructor TSchematic.Create(var InputTextFile: TextFile);
 begin
+  Self.ColdBootSchematic;
 end;
 
 constructor TSchematic.Create;
@@ -239,6 +248,65 @@ begin
   ViewTLBRreal.BR.X :=  SchWidthInches/2.0;
   ViewTLBRreal.BR.Y := -SchHeightInches/2.0;
   ZoomValue := 1.0;
+end;
+
+procedure TSchematic.getSchematicItems(var cvi: TSchematicObjectArray); {TODO: Change integer to TSchematicIndex,
+which is just an alias for Integer; Also make sure this is re-called when an item is deleted, otherwise the data will be stale.}
+{Relies on the schematic's ViewTLBRreal and class variable total_instances
+to determine what is within the current viewport's bounding box.}
+var
+  item : TSchematicObject;
+  cvi_length : Integer;
+  max_cvi_length : Integer;
+begin
+   {Clear out cvi first, since we're using it to pass data back and forth and each call
+   to this procedure is considered 'destructive' on that data [although that makes sense]}
+  SetLength(cvi,1);
+
+  cvi_length := 0;
+  max_cvi_length := number_of_total_instances;
+  SetLength(cvi, max_cvi_length);
+  for item in total_instances do
+    begin
+      if SpanCheck('X',item.BBox) then begin
+        cvi[cvi_length] := item;
+        cvi_length += 1;
+      end else if SpanCheck('Y',item.BBox) then begin
+        cvi[cvi_length] := item;
+        cvi_length += 1;
+      end;
+
+  end;
+WriteLn('DONE');
+
+end;
+
+function TSchematic.SpanCheck(Mode: char; item: TRectTLBRreal
+  ): boolean;
+  //TODO: Fix later. This isn't a good way to do this; it's incorrect.
+  //I don't gain anything by doing it this way, I might as well check all the spans without intermediate
+  //vars. However, if I define a SPAN type and overload the IN operator?
+begin
+  case Mode of
+    'X' :
+      if     ( (item.TL.X >= ViewTLBRreal.TL.X) and (item.TL.X <= ViewTLBRreal.BR.X) ) then
+        Result := True
+      else if( (item.BR.X <= ViewTLBRreal.BR.X) and (item.BR.X >= ViewTLBRreal.TL.X) )  then
+        Result := True
+      else if( (item.TL.X <= ViewTLBRreal.TL.X) and (item.BR.X >= ViewTLBRreal.BR.X)  ) then
+        Result := True
+      else
+        Result := False;
+       'Y' :
+         if     (item.TL.Y >= ViewTLBRreal.BR.Y) and (item.TL.Y <= ViewTLBRreal.TL.Y) then
+           Result := True
+         else if(item.BR.Y >= ViewTLBRreal.BR.Y) and (item.BR.Y <= ViewTLBRreal.TL.Y) then
+           Result := True
+         else if(item.TL.Y >= ViewTLBRreal.TL.Y) and (item.BR.Y <= ViewTLBRreal.BR.Y)  then
+           Result := True
+         else
+           Result := False;
+  end;{End Case}
 end;
 
 procedure TSchematic.ZoomIn;
@@ -294,20 +362,6 @@ begin
 
 end;
 
-
-function TMainForm.ParseCommand(inputString: string): TPuffCommand;
-begin
-  if inputString = 'z' then
-  begin
-    ParseCommand := ZoomIn;
-  end
-  else if inputString = 'Z' then begin
-    ParseCommand := ZoomOut;
-    end
-  else
-    ParseCommand := Invalid;  //TODO: Command parser.
-end;
-
 { TMainForm }
 
 procedure TMainForm.FormCreate(Sender: TObject);
@@ -327,16 +381,16 @@ begin
   end;
     {$ENDIF DEBUG}
   Caption := 'PUFF ' + string(version_string);
-  PuffCmdLstBox.Clear;
+  //PuffCmdLstBox.Clear;
   //PuffCmdLstBox.Items.Add('>>');
-  PuffCmdEdit.Clear;
+  //PuffCmdEdit.Clear;
   //PuffCmdEdit.Text := '>>';
   PrepareSmithChart(SmithChart);
   Schematic := TSchematic.Create;
-  PuffMenu.Items[0].Items[1].Visible:=False;
+  PuffMenu.Items[1].Items[1].Visible:=False;
   {$IFDEF DEBUG}
         //Set debug menu not to show up explicitly in Release builds.
-        PuffMenu.Items[0].Items[1].Visible:=True;
+        PuffMenu.Items[1].Items[1].Visible:=True;
   {$ENDIF DEBUG}
 
 end;
@@ -393,31 +447,6 @@ begin
       DebugForm.Show;
 end;
 
-procedure TMainForm.PuffCmdEditKeyDown(Sender: TObject; var Key: word;
-  Shift: TShiftState);
-var
-  CommandReturn: TPuffCommand;
-begin
-  if (Key = VK_RETURN) then
-    CommandReturn := ParseCommand(PuffCmdEdit.Text);
-  case CommandReturn of
-    Invalid:
-    begin
-      PuffCmdEdit.Text := 'ENTERED A COMMAND, HOORAY!';
-    end;
-    ZoomIn:
-    begin
-      Schematic.ZoomIn;
-      PuffCmdLstBox.Items.Add('Zoomed In');
-    end;
-    ZoomOut:
-    begin
-      Schematic.ZoomOut;
-      PuffCmdLstBox.Items.Add('Zoomed Out');
-    end;
-  end;
-
-end;
 
 procedure TMainForm.UpdateStatusBar(X, Y: Integer);
 var tempTPointReal : TPointReal;

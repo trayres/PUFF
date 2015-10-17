@@ -100,9 +100,10 @@
         <UnitName Value="SmithChart"/>
       </Unit4>
       <Unit5>
-        <Filename Value="debugform.pas"/>
+        <Filename Value="debugformunit.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DebugForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="DebugFormUnit"/>
       </Unit5>
