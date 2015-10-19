@@ -209,6 +209,7 @@ var
   MainForm: TMainForm;
   version_string: string;
   Schematic : TSchematic;
+  schematic_bmp : TBGRABitmap;
 
 implementation
 
@@ -276,6 +277,7 @@ begin
   ZoomValue := 1.0;
 
   {Add a dummy component for testing.}
+  schematic_bmp := TBGRABitmap.Create( SchWidthPixels, SchHeightPixels, BGRABlack);
 
 end;
 
@@ -468,6 +470,9 @@ begin
   Schematic.SchHeightInches := Real(MainForm.LayoutPaintBox.Height / Schematic.ScreenRez);
   Schematic.ViewTLBRreal.BR.X:=Schematic.ViewTLBRreal.TL.X + Schematic.SchWidthInches;
   Schematic.ViewTLBRreal.BR.Y:=Schematic.ViewTLBRreal.TL.Y - Schematic.SchHeightInches;
+  schematic_bmp.Free;
+  schematic_bmp := TBGRABitmap.Create(Schematic.SchWidthPixels, Schematic.SchHeightPixels,BGRABlack);
+  LayoutPaintBoxPaint(Sender);
 end;
 
 procedure TMainForm.MenuItem_AboutClick(Sender: TObject);
@@ -502,5 +507,15 @@ begin
   PuffStatusBar.Panels[2].Text := Format('ViewPort Coords: (%dpx,%dpx)',[viewTPoint.X,viewTPoint.Y]);
 end;
 
+//initialization
+	(* here may be placed code that is *)
+	(* executed as the unit gets loaded *)
+
+
+finalization
+  begin
+	(* code executed at program end *)
+  schematic_bmp.Free;
+  end;
 
 end.
