@@ -12,22 +12,13 @@ uses
   Dialogs, Classes, SmithChart, DebugFormUnit;
 
 {$R *.res}
-var
-  CommandLineParams : TStringList;
-  s : String;
-
-begin
-  CommandLineParams := TStringList.Create;
-  try
-  //Application.GetEnvironmentList(CommandLineParams);
-
+//var
+  begin
   RequireDerivedFormResource := True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
   Application.CreateForm(TDebugForm, DebugForm);
   Application.Run;
-  finally
-    CommandLineParams.Free;
-  end;
+
 end.
 

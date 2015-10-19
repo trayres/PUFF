@@ -44,45 +44,59 @@ type
 
   ComponentType = record  //Component of graphical item - eg a line in a resistor
     Color: TColor;
-    Width: Integer; //Never thought I'd miss 'Natural of range' from VHDL.
-    case CompType: EnumCompType of
-      LineP1P2: (P1: TPointReal;
+    Width: Real;  //Never thought I'd miss 'Natural of range' from VHDL.
+    case CompType: EnumCompType of  {These are all in Model coordinates}
+      LineP1P2: (
+        W:  Real;
+        P1: TPointReal;
         P2: TPointReal);
-      LineXYXY: (X1: real;
+      LineXYXY: (
+        Width: real;
+        X1: real;
         Y1: real;
         X2: real;
         Y2: real);
-      RectangleTLBR: (TL: TPointReal;
+      RectangleTLBR: (
+        TL: TPointReal;
         BR: TPointReal);
-      RectangleXYXY: (RX1: TPointReal;
+      RectangleXYXY: (
+        RX1: TPointReal;
         RY1: TPointReal;
         RX2: TPointReal;
         RY2: TPointReal);
   end;
 
+  TComponentTypeArray = array of ComponentType;
+
 
   { TSchematicObject }
+  {Should be complicated enough to hold IEC 60617 symbols}
+  {}
   TSchematicObject = class
-    gfx_components : array of ComponentType; //Remember, put everything in world coords when we place items.
-    anchorPt : TPointReal; //Drag from here.
+    gfx_components : TComponentTypeArray; //Remember, put everything in world coords when we place items.
+    anchorPt : TPointReal; //Drag from here - world coordinates
   public
-    constructor Create();
-    procedure drawSchematicObject();
+    constructor Create({Color : TColor, Width});
+    procedure drawSchematicObject(draw_point_world_coords : TPointReal; rotation_degree : integer); {Should I give this the viewport coordinates?}
   private
     BBox: TRectTLBRreal; //Remember, this is in world coordinates!
   end;
 
   TSchematicObjectArray = array of TSchematicObject;
 
+  { TSchematicLibrary }
+
   TSchematicLibrary = class
-    libraryItem: array of TSchematicObject;
+    libraryItem: TSchematicObjectArray;
+    constructor Create(var InputLibraryFile: TextFile);
+    constructor Create;
   end;
 
   TSchematic = class
     class var total_instances: array of TSchematicObject;
     class var number_of_total_instances : integer;
   public
-    current_viewport_instances : array of TSchematicObject;
+    current_viewport_instances : TSchematicObjectArray;
     ZoomValue     : Real;
     ZoomInt       : Integer;
     WorldTLBRreal : TRectTLBRreal;
@@ -95,6 +109,7 @@ type
     SchHeightInches: real;
     VCenter       : TPointReal;  //Center of the viewport
     constructor Create(var InputTextFile: TextFile);
+    constructor Create;
     procedure ColdBootSchematic; //Gets initial window/screen info
     procedure getSchematicItems(var cvi : TSchematicObjectArray); //Uses ViewTLBRreal and class variable instances to determine what is visible, returns that list via
     function  SpanCheck(Mode : char; item : TRectTLBRreal) : boolean;
@@ -106,14 +121,14 @@ type
     function getWorldCoords(X,Y : Integer) : TPointReal;    //From Viewport Coords, X,Y
     //procedure moveToWorldCoord(OriginPt : TPointReal);
     //procedure getWorldCoords(vPt :  TPoint);
-    //procedure getViewportCoords; //From World Coords
+    function getViewportCoords(vp_pt : TPointReal) : TPoint; //From World Coords
     //property WOrigin
     //procedure getOrigin;
     //procedure setOrigin;
     //procedure checkBoundingBox;
+    //procedure addSchematicItem;
+    procedure drawVisibleSchematicItems;
   private
-
-    constructor Create;
   end;
 
   { TMainForm }
@@ -186,19 +201,32 @@ type
 
   public
     { public declarations }
-    Schematic : TSchematic;
+
     //property LayoutPaintBoxWidth :
   end;
 
 var
   MainForm: TMainForm;
   version_string: string;
+  Schematic : TSchematic;
 
 implementation
 
 uses DebugFormUnit;
 
 {$R *.lfm}
+
+{ TSchematicLibrary }
+
+constructor TSchematicLibrary.Create(var InputLibraryFile: TextFile);
+begin
+
+end;
+
+constructor TSchematicLibrary.Create;
+begin
+
+end;
 
 { TSchematic }
 
@@ -230,8 +258,6 @@ begin
   WriteLn('SchWidthPixels: '  + Format('%D', [SchWidthPixels]));
   WriteLn('SchHeightInches: ' + Format('%F', [SchHeightInches]));
   WriteLn('SchWidthInches: '  + Format('%F', [SchWidthInches]));
-
-
   {$ENDIF DEBUG}
 
   //Place the World with (0,0) in the lower left hand corner
@@ -248,6 +274,9 @@ begin
   ViewTLBRreal.BR.X :=  SchWidthInches/2.0;
   ViewTLBRreal.BR.Y := -SchHeightInches/2.0;
   ZoomValue := 1.0;
+
+  {Add a dummy component for testing.}
+
 end;
 
 procedure TSchematic.getSchematicItems(var cvi: TSchematicObjectArray); {TODO: Change integer to TSchematicIndex,
@@ -275,17 +304,11 @@ begin
         cvi[cvi_length] := item;
         cvi_length += 1;
       end;
-
   end;
-WriteLn('DONE');
-
 end;
 
 function TSchematic.SpanCheck(Mode: char; item: TRectTLBRreal
   ): boolean;
-  //TODO: Fix later. This isn't a good way to do this; it's incorrect.
-  //I don't gain anything by doing it this way, I might as well check all the spans without intermediate
-  //vars. However, if I define a SPAN type and overload the IN operator?
 begin
   case Mode of
     'X' :
@@ -350,6 +373,25 @@ begin
   Result.Y := ViewTLBRreal.TL.Y-SchHeightInches*(Y/SchHeightPixels);
 end;
 
+function TSchematic.getViewportCoords(vp_pt: TPointReal) : TPoint;
+{From the real world coordinate point - used in drawing functions after establishing the bbox}
+var
+  X,Y : Real;
+begin
+  //Compare the viewpoint_point to the boundaries of the ViewTLBRreal
+  X :=  ( (vp_pt.X - ViewTLBRreal.TL.X ) / SchWidthInches ) * SchWidthPixels ;
+  Y :=  ( (ViewTLBRreal.TL.Y - vp_pt.Y ) / SchHeightInches) * SchHeightPixels;
+  {WriteLn( Format('X: %f',[X]) );
+  WriteLn( Format('Y: %f',[Y]) ); }
+  Result.X := TRUNC(X);
+  Result.Y := TRUNC(Y);
+end;
+
+procedure TSchematic.drawVisibleSchematicItems;
+begin
+
+end;
+
 { TSchematicObject }
 
 constructor TSchematicObject.Create;
@@ -357,7 +399,7 @@ begin
 
 end;
 
-procedure TSchematicObject.drawSchematicObject;
+procedure TSchematicObject.drawSchematicObject(draw_point_world_coords : TPointReal; rotation_degree : integer);
 begin
 
 end;
@@ -449,11 +491,15 @@ end;
 
 
 procedure TMainForm.UpdateStatusBar(X, Y: Integer);
-var tempTPointReal : TPointReal;
+var
+  tempTPointReal : TPointReal;
+  viewTPoint : TPoint;
 begin
   tempTPointReal := Schematic.GetWorldCoords(X,Y);
+  viewTPoint:= Schematic.getViewportCoords(tempTPointReal);
   PuffStatusBar.Panels[0].Text := 'Pixel Coords: (' + IntToStr(X) + ',' + IntToStr(Y) + ')';
   PuffStatusBar.Panels[1].Text := Format('World Coords: (%fin,%fin)',[tempTPointReal.X,tempTPointReal.Y]);
+  PuffStatusBar.Panels[2].Text := Format('ViewPort Coords: (%dpx,%dpx)',[viewTPoint.X,viewTPoint.Y]);
 end;
 
 
